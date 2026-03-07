@@ -1,0 +1,146 @@
+# Ambulance Dispatch System — Demonstration Guide
+
+A step-by-step script for presenting the project. Open `http://localhost:5173` before starting.
+
+---
+
+## Step 1 — Introduction (30 seconds)
+
+**Show:** The full interface — dark map on the right, control panel on the left.
+
+**Say:**
+> "This is an Ambulance Dispatch System built on real OpenStreetMap data from T. Nagar, Chennai. It simulates emergency calls and determines which ambulance should respond using graph algorithms. The map shows 190 real intersections connected by 441 road segments."
+
+**Point out:**
+- The dark-themed Leaflet map with real street data
+- 5 ambulance markers (white circles with truck icons)
+- 3 hospital markers (blue circles with building icons)
+- The Fleet Status panel showing all 5 units as "available"
+- Hospital capacity bars
+
+---
+
+## Step 2 — Generate an Emergency (30 seconds)
+
+**Click:** `New Emergency` button (red button in Dispatch section)
+
+**Show:** A toast notification appears in the top-right corner. A red pulsing marker appears on the map. The emergency also appears in the Emergencies list in the sidebar.
+
+**Say:**
+> "An emergency has been generated at a random intersection with a severity level. Notice the toast notification — in a real system, this would be a 911 call coming in. The red marker on the map shows the emergency location."
+
+---
+
+## Step 3 — Select the Emergency (15 seconds)
+
+**Click:** Either the emergency in the sidebar list, OR click the red marker on the map.
+
+**Show:** The emergency card highlights blue in the sidebar. The map marker changes from red to blue to indicate selection.
+
+**Say:**
+> "I select this emergency to dispatch an ambulance to it."
+
+---
+
+## Step 4 — Greedy Dispatch (30 seconds)
+
+**Click:** `Greedy Dispatch` button
+
+**Show:** A blue dashed path appears from the nearest ambulance to the emergency, and a red dashed path from the emergency to the nearest hospital. A success toast appears. The Last Dispatch card shows the result.
+
+**Say:**
+> "The Greedy algorithm uses Dijkstra's shortest path to find the closest available ambulance, then routes the patient to the nearest hospital. It's simple and fast — O(A × (V+E) log V) where A is the number of ambulances. The blue path is ambulance-to-emergency, the red path is emergency-to-hospital."
+
+**Point out:**
+- The ambulance status changes to "dispatched" (red badge)
+- Hospital load increases by 1
+- Total time shown in the result card
+
+---
+
+## Step 5 — Generate Multiple Emergencies (20 seconds)
+
+**Click:** `Reset` button first, then click `New Emergency` 3 times
+
+**Say:**
+> "Now let's generate multiple emergencies simultaneously to see how the Hungarian algorithm handles batch assignment."
+
+---
+
+## Step 6 — Compare Methods (45 seconds)
+
+**Click:** `Compare Methods` button
+
+**Show:** The Comparison table appears showing Greedy vs Hungarian side-by-side.
+
+**Say:**
+> "The Compare function runs both algorithms on the same emergency without actually dispatching. The **Greedy algorithm** assigns the nearest ambulance individually — it's O(A × Dijkstra) per emergency. The **Hungarian algorithm** solves the assignment problem globally using the Kuhn-Munkres method — it builds a cost matrix and finds the globally optimal assignment in O(n³). It also factors in hospital congestion to balance the load."
+
+**Point out:**
+- Response time comparison
+- Total time comparison (winner highlighted in green)
+- Nodes visited (Hungarian explores more but may find better assignments)
+
+---
+
+## Step 7 — Hungarian Dispatch (30 seconds)
+
+**Click:** `Hungarian Dispatch` button
+
+**Show:** Multiple ambulances get dispatched at once with paths overlaid.
+
+**Say:**
+> "The Hungarian algorithm dispatched all pending emergencies optimally. Unlike greedy, which assigns one-by-one and may make suboptimal choices, Hungarian considers all ambulances and all emergencies together. The cost matrix combines three objectives: travel distance, route traffic conditions, and hospital load balancing."
+
+---
+
+## Step 8 — Live Traffic Simulation (30 seconds)
+
+**Click:** [Traffic](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/api.ts#42-46) button (the green play button)
+
+**Show:** Edge colors start changing on the map (amber = congested, red = blocked). A "Traffic Live" indicator appears in the header.
+
+**Say:**
+> "The traffic simulation runs in a background thread, randomly modifying edge weights to simulate real congestion. In a production system, this data would come from live traffic APIs. The simulation affects dispatch decisions — if a road becomes blocked, the system would route around it."
+
+---
+
+## Step 9 — Reset & Summary (30 seconds)
+
+**Click:** `Stop` traffic, then `Reset`
+
+**Say:**
+> "To summarize the algorithms:
+> - **Greedy** — fast, simple, assigns nearest ambulance, O(A × Dijkstra), good baseline
+> - **Hungarian** — globally optimal, O(n³) assignment, considers distance + traffic + hospital load
+> - **A\*** — used internally for pathfinding with geographic heuristic
+> 
+> Real-world applications include emergency services dispatch, disaster response systems, and smart city infrastructure."
+
+---
+
+## Key Technical Points to Mention
+
+| Topic | Detail |
+|---|---|
+| **Graph** | Adjacency list, 190 nodes, 441 edges from OpenStreetMap |
+| **Dijkstra** | O((V+E) log V) with binary heap, finds exact shortest path |
+| **A\*** | Dijkstra + Euclidean heuristic, often fewer nodes visited |
+| **Greedy** | Local optimum — nearest ambulance, nearest hospital |
+| **Hungarian** | Global optimum — Kuhn-Munkres algorithm, O(n³) |
+| **Multi-objective** | α·distance + β·traffic + γ·hospital congestion |
+| **Stack** | Python FastAPI + WebSocket backend, React + Leaflet frontend |
+| **Map data** | Real OpenStreetMap data extracted via osmnx |
+
+---
+
+## If Asked About...
+
+**"Why not just use Google Maps API?"**
+> We implemented algorithms from scratch to demonstrate understanding. The graph is extracted from OpenStreetMap and we manually implement Dijkstra, A*, and Hungarian rather than using a routing service.
+
+**"How does the Hungarian algorithm work?"**
+> It's based on the Kuhn-Munkres method. We build a cost matrix where rows are ambulances and columns are emergencies. Each cell represents the "cost" of assigning that ambulance to that emergency. The algorithm finds the assignment that minimises total cost in O(n³) time by maintaining dual variables (potentials) and augmenting paths.
+
+**"What makes the hybrid approach better?"**
+> Greedy makes locally optimal decisions — it picks the nearest ambulance each time. But if two emergencies are close to the same ambulance, greedy might assign it to the first one, leaving the second with a far ambulance. Hungarian sees the full picture and makes globally optimal assignments.

@@ -1,0 +1,3799 @@
+{
+  "metadata": {
+    "city": "T. Nagar, Chennai, India",
+    "extracted_at": "2026-02-18T13:46:33.430601+00:00",
+    "node_count": 190,
+    "edge_count": 441,
+    "strongly_connected": true
+  },
+  "nodes": [
+    {
+      "id": "12852450817",
+      "x": 80.232398,
+      "y": 13.04221,
+      "label": "North Usman Rd & Panagal Park"
+    },
+    {
+      "id": "12852450821",
+      "x": 80.232146,
+      "y": 13.040981,
+      "label": "North Usman Rd & Panagal Park #2"
+    },
+    {
+      "id": "1702257674",
+      "x": 80.24038,
+      "y": 13.045278,
+      "label": "Junction 674"
+    },
+    {
+      "id": "250364946",
+      "x": 80.237713,
+      "y": 13.0492,
+      "label": "Rajan St & Sarangapani St"
+    },
+    {
+      "id": "1702257683",
+      "x": 80.240069,
+      "y": 13.045324,
+      "label": "Thirumalai Pillai Rd"
+    },
+    {
+      "id": "250364947",
+      "x": 80.237269,
+      "y": 13.047556,
+      "label": "Rajan St & Trimoorthy St"
+    },
+    {
+      "id": "7024787475",
+      "x": 80.230397,
+      "y": 13.0478,
+      "label": "Mambalam High Rd"
+    },
+    {
+      "id": "12678213142",
+      "x": 80.232555,
+      "y": 13.04473,
+      "label": "North Usman Rd"
+    },
+    {
+      "id": "1702258197",
+      "x": 80.239825,
+      "y": 13.047366,
+      "label": "Chinnaiah St & Thirumalai Rd"
+    },
+    {
+      "id": "250737686",
+      "x": 80.230746,
+      "y": 13.043615,
+      "label": "Car Track Rd & Nehru St"
+    },
+    {
+      "id": "250737685",
+      "x": 80.230843,
+      "y": 13.04422,
+      "label": "Car Track Rd"
+    },
+    {
+      "id": "10216123926",
+      "x": 80.230141,
+      "y": 13.045977,
+      "label": "Mambalam High Rd #2"
+    },
+    {
+      "id": "6496557085",
+      "x": 80.236921,
+      "y": 13.046825,
+      "label": "Bazullah Rd & Rajan St"
+    },
+    {
+      "id": "6496557086",
+      "x": 80.237098,
+      "y": 13.047594,
+      "label": "Rajan St & Trimoorthy St #2"
+    },
+    {
+      "id": "298154015",
+      "x": 80.230872,
+      "y": 13.050798,
+      "label": "Gangai Amman St & Mambalam High Rd"
+    },
+    {
+      "id": "12485887993",
+      "x": 80.23585,
+      "y": 13.042752,
+      "label": "Raghaviah Rd"
+    },
+    {
+      "id": "12485887994",
+      "x": 80.23594,
+      "y": 13.042757,
+      "label": "Gopathi Narayanaswami Rd"
+    },
+    {
+      "id": "250737703",
+      "x": 80.234914,
+      "y": 13.049772,
+      "label": "Bharathy Ngr 1st St & Thilak St Ext"
+    },
+    {
+      "id": "250737704",
+      "x": 80.234375,
+      "y": 13.048087,
+      "label": "Thilak St & Thilak St Ext"
+    },
+    {
+      "id": "250737705",
+      "x": 80.236315,
+      "y": 13.049501,
+      "label": "Bharathy Ngr 1st St & Sivasailam St"
+    },
+    {
+      "id": "11951492660",
+      "x": 80.232493,
+      "y": 13.044527,
+      "label": "North Usman Rd & North Usman Rd Flyover"
+    },
+    {
+      "id": "864565814",
+      "x": 80.232729,
+      "y": 13.047454,
+      "label": "Bazulla Flyover & Bazullah Rd"
+    },
+    {
+      "id": "250364477",
+      "x": 80.237999,
+      "y": 13.045392,
+      "label": "Arulambal St & Kuppusamy St"
+    },
+    {
+      "id": "298154045",
+      "x": 80.231556,
+      "y": 13.050621,
+      "label": "Gangai Amman St"
+    },
+    {
+      "id": "250364480",
+      "x": 80.237977,
+      "y": 13.045319,
+      "label": "Arulambal St & Singara Mudaliar St"
+    },
+    {
+      "id": "11777931845",
+      "x": 80.240276,
+      "y": 13.044984,
+      "label": "Dr Nair Rd & Gopathi Narayanaswami Rd"
+    },
+    {
+      "id": "250364486",
+      "x": 80.235761,
+      "y": 13.045742,
+      "label": "Raghaviah Rd & Singara Mudaliar St"
+    },
+    {
+      "id": "11606983238",
+      "x": 80.239151,
+      "y": 13.046356,
+      "label": "Bazullah Rd"
+    },
+    {
+      "id": "250364491",
+      "x": 80.238104,
+      "y": 13.045862,
+      "label": "Arulambal St & Yogambal St"
+    },
+    {
+      "id": "11606983243",
+      "x": 80.238973,
+      "y": 13.046396,
+      "label": "Bazullah Rd #2"
+    },
+    {
+      "id": "250364495",
+      "x": 80.235889,
+      "y": 13.046348,
+      "label": "Raghaviah Rd & Yogambal St"
+    },
+    {
+      "id": "250364504",
+      "x": 80.234966,
+      "y": 13.044719,
+      "label": "Rama St & Viyasar St"
+    },
+    {
+      "id": "250364512",
+      "x": 80.233632,
+      "y": 13.047341,
+      "label": "Bazullah Rd & Hanumanthan St"
+    },
+    {
+      "id": "250364519",
+      "x": 80.232623,
+      "y": 13.045432,
+      "label": "North Usman Rd #2"
+    },
+    {
+      "id": "250364033",
+      "x": 80.229387,
+      "y": 13.043041,
+      "label": "Maharajapuram Santhanam Salai & Mambalam High Rd"
+    },
+    {
+      "id": "250364040",
+      "x": 80.230377,
+      "y": 13.04766,
+      "label": "Bazullah Rd & Mambalam High Rd"
+    },
+    {
+      "id": "2001037450",
+      "x": 80.238414,
+      "y": 13.041805,
+      "label": "Gopalakrishnan St"
+    },
+    {
+      "id": "250364043",
+      "x": 80.230733,
+      "y": 13.050029,
+      "label": "Mambalam High Rd & Unnamalai Ammal St"
+    },
+    {
+      "id": "247681683",
+      "x": 80.2353,
+      "y": 13.050662,
+      "label": "Habibullah Rd"
+    },
+    {
+      "id": "12485920409",
+      "x": 80.235856,
+      "y": 13.04263,
+      "label": "Junction 409"
+    },
+    {
+      "id": "250364576",
+      "x": 80.232118,
+      "y": 13.046705,
+      "label": "Krishnan St"
+    },
+    {
+      "id": "250364066",
+      "x": 80.23228,
+      "y": 13.04344,
+      "label": "North Usman Rd & Vasan St"
+    },
+    {
+      "id": "250364068",
+      "x": 80.229598,
+      "y": 13.043859,
+      "label": "Mambalam High Rd & Nehru St"
+    },
+    {
+      "id": "250364069",
+      "x": 80.236023,
+      "y": 13.047004,
+      "label": "Bazullah Rd & Raghaviah Rd"
+    },
+    {
+      "id": "250364070",
+      "x": 80.238251,
+      "y": 13.04654,
+      "label": "Arulambal St & Bazullah Rd"
+    },
+    {
+      "id": "250364072",
+      "x": 80.230501,
+      "y": 13.048493,
+      "label": "Chari St & Mambalam High Rd"
+    },
+    {
+      "id": "2197203112",
+      "x": 80.234063,
+      "y": 13.041819,
+      "label": "Gopathi Narayanaswami Rd & Panagal Park"
+    },
+    {
+      "id": "250364075",
+      "x": 80.230635,
+      "y": 13.049362,
+      "label": "Mambalam High Rd & Ramakrishna St"
+    },
+    {
+      "id": "308209325",
+      "x": 80.238323,
+      "y": 13.044099,
+      "label": "Junction 325"
+    },
+    {
+      "id": "308209326",
+      "x": 80.239128,
+      "y": 13.044569,
+      "label": "Kuppusamy St"
+    },
+    {
+      "id": "308209327",
+      "x": 80.240168,
+      "y": 13.045163,
+      "label": "Dr Nair Rd & Thirumalai Pillai Rd"
+    },
+    {
+      "id": "308209330",
+      "x": 80.240334,
+      "y": 13.045015,
+      "label": "Gopathi Narayanaswami Rd & Thirumalai Rd"
+    },
+    {
+      "id": "865930933",
+      "x": 80.230561,
+      "y": 13.047723,
+      "label": "Bazulla Flyover & Bazullah Rd #2"
+    },
+    {
+      "id": "2197203129",
+      "x": 80.232425,
+      "y": 13.042969,
+      "label": "Govindu St & North Usman Rd"
+    },
+    {
+      "id": "2197203130",
+      "x": 80.232431,
+      "y": 13.043533,
+      "label": "Nathamuni St & North Usman Rd"
+    },
+    {
+      "id": "2197203132",
+      "x": 80.232472,
+      "y": 13.044003,
+      "label": "Coats Rd & North Usman Rd"
+    },
+    {
+      "id": "2197203133",
+      "x": 80.232572,
+      "y": 13.044565,
+      "label": "Murugesan St & North Usman Rd"
+    },
+    {
+      "id": "2197203134",
+      "x": 80.232625,
+      "y": 13.045056,
+      "label": "North Usman Rd & Viyasar St"
+    },
+    {
+      "id": "250364096",
+      "x": 80.230958,
+      "y": 13.05097,
+      "label": "Mambalam High Rd & Theagaraaya Gramani St"
+    },
+    {
+      "id": "250364098",
+      "x": 80.231174,
+      "y": 13.051556,
+      "label": "Habibullah Rd & Mambalam High Rd"
+    },
+    {
+      "id": "12136684237",
+      "x": 80.232494,
+      "y": 13.048291,
+      "label": "Chari St"
+    },
+    {
+      "id": "12136684238",
+      "x": 80.232541,
+      "y": 13.048714,
+      "label": "Junction 238"
+    },
+    {
+      "id": "12136684239",
+      "x": 80.232906,
+      "y": 13.048662,
+      "label": "Junction 239"
+    },
+    {
+      "id": "2001025744",
+      "x": 80.235427,
+      "y": 13.044106,
+      "label": "Murugesan St & Raghaviah Rd"
+    },
+    {
+      "id": "12136684241",
+      "x": 80.232565,
+      "y": 13.048971,
+      "label": "Junction 241"
+    },
+    {
+      "id": "12136684242",
+      "x": 80.232713,
+      "y": 13.048684,
+      "label": "Junction 242"
+    },
+    {
+      "id": "250364624",
+      "x": 80.230586,
+      "y": 13.049055,
+      "label": "Mambalam High Rd & Vivekananda St"
+    },
+    {
+      "id": "12136684244",
+      "x": 80.232339,
+      "y": 13.048742,
+      "label": "Junction 244"
+    },
+    {
+      "id": "2001025751",
+      "x": 80.235363,
+      "y": 13.043587,
+      "label": "Coats Rd & Raghaviah Rd"
+    },
+    {
+      "id": "2001025752",
+      "x": 80.236211,
+      "y": 13.041652,
+      "label": "Junction 752"
+    },
+    {
+      "id": "12136684243",
+      "x": 80.232745,
+      "y": 13.04895,
+      "label": "Junction 243"
+    },
+    {
+      "id": "12136684247",
+      "x": 80.232689,
+      "y": 13.048402,
+      "label": "Junction 247"
+    },
+    {
+      "id": "12136684245",
+      "x": 80.23236,
+      "y": 13.048998,
+      "label": "Junction 245"
+    },
+    {
+      "id": "250364636",
+      "x": 80.232114,
+      "y": 13.04915,
+      "label": "Ramakrishna St & Vivekananda St"
+    },
+    {
+      "id": "12136684246",
+      "x": 80.232302,
+      "y": 13.04845,
+      "label": "Junction 246"
+    },
+    {
+      "id": "250365152",
+      "x": 80.242281,
+      "y": 13.046245,
+      "label": "Gopathi Narayanaswami Flyover & Gopathi Narayanaswami Rd"
+    },
+    {
+      "id": "2001025766",
+      "x": 80.235435,
+      "y": 13.042513,
+      "label": "Gopathi Narayanaswami Rd & Nathamuni St"
+    },
+    {
+      "id": "12136684240",
+      "x": 80.232196,
+      "y": 13.048762,
+      "label": "Junction 240"
+    },
+    {
+      "id": "2001025770",
+      "x": 80.235503,
+      "y": 13.04175,
+      "label": "Junction 770"
+    },
+    {
+      "id": "1701428465",
+      "x": 80.243131,
+      "y": 13.046633,
+      "label": "Gopathi Narayanaswami Rd & North Crescent Rd"
+    },
+    {
+      "id": "12231587572",
+      "x": 80.241931,
+      "y": 13.046862,
+      "label": "Chinnaiah St"
+    },
+    {
+      "id": "12231587573",
+      "x": 80.241852,
+      "y": 13.046532,
+      "label": "Junction 573"
+    },
+    {
+      "id": "2197415670",
+      "x": 80.232255,
+      "y": 13.042231,
+      "label": "North Usman Rd & Panagal Park #3"
+    },
+    {
+      "id": "11813014775",
+      "x": 80.231529,
+      "y": 13.045748,
+      "label": "Junction 775"
+    },
+    {
+      "id": "11813014776",
+      "x": 80.231448,
+      "y": 13.045808,
+      "label": "Junction 776"
+    },
+    {
+      "id": "2197415682",
+      "x": 80.232721,
+      "y": 13.045625,
+      "label": "North Usman Rd & Somasundaram Rd"
+    },
+    {
+      "id": "2197415684",
+      "x": 80.232728,
+      "y": 13.046012,
+      "label": "Krishna Swamy St & North Usman Rd"
+    },
+    {
+      "id": "2197415689",
+      "x": 80.232834,
+      "y": 13.046595,
+      "label": "Krishnan St & North Usman Rd"
+    },
+    {
+      "id": "2197415692",
+      "x": 80.232975,
+      "y": 13.047433,
+      "label": "Bazullah Rd & North Usman Rd"
+    },
+    {
+      "id": "2197415695",
+      "x": 80.233278,
+      "y": 13.048239,
+      "label": "North Usman Rd & Thilak St"
+    },
+    {
+      "id": "2197415696",
+      "x": 80.233171,
+      "y": 13.048217,
+      "label": "Chari St & North Usman Rd"
+    },
+    {
+      "id": "2197415697",
+      "x": 80.233472,
+      "y": 13.048969,
+      "label": "3rd St & North Usman Rd"
+    },
+    {
+      "id": "2197415698",
+      "x": 80.233367,
+      "y": 13.049003,
+      "label": "North Usman Rd & Ramakrishna St"
+    },
+    {
+      "id": "250364178",
+      "x": 80.230655,
+      "y": 13.04288,
+      "label": "Car Track Rd & Maharajapuram Santhanam Salai"
+    },
+    {
+      "id": "2197415700",
+      "x": 80.233596,
+      "y": 13.049512,
+      "label": "2nd St & North Usman Rd"
+    },
+    {
+      "id": "2197415702",
+      "x": 80.233531,
+      "y": 13.049634,
+      "label": "North Usman Rd & Unnamalai Ammal St"
+    },
+    {
+      "id": "250364184",
+      "x": 80.229943,
+      "y": 13.042959,
+      "label": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "id": "250364200",
+      "x": 80.235523,
+      "y": 13.044621,
+      "label": "Raghaviah Rd & Viyasar St"
+    },
+    {
+      "id": "250364713",
+      "x": 80.235794,
+      "y": 13.047047,
+      "label": "Bazullah Rd & Dr Sadasivam Rd"
+    },
+    {
+      "id": "250364712",
+      "x": 80.23593,
+      "y": 13.047757,
+      "label": "Dr Sadasivam Rd & Thilak St"
+    },
+    {
+      "id": "250364715",
+      "x": 80.236482,
+      "y": 13.049476,
+      "label": "Dr Sadasivam Rd & Sarangapani St"
+    },
+    {
+      "id": "6496056616",
+      "x": 80.239736,
+      "y": 13.047017,
+      "label": "Thirumalai Rd & Trimoorthy St"
+    },
+    {
+      "id": "250364206",
+      "x": 80.237216,
+      "y": 13.04396,
+      "label": "Lakshmanan Chetty St"
+    },
+    {
+      "id": "250364719",
+      "x": 80.242928,
+      "y": 13.048074,
+      "label": "Giri Rd"
+    },
+    {
+      "id": "250364722",
+      "x": 80.243571,
+      "y": 13.046997,
+      "label": "Giri Rd & Gopathi Narayanaswami Rd"
+    },
+    {
+      "id": "250364727",
+      "x": 80.245077,
+      "y": 13.047833,
+      "label": "Giri Rd & Gopathi Narayanaswami Rd #2"
+    },
+    {
+      "id": "250364229",
+      "x": 80.237749,
+      "y": 13.044455,
+      "label": "Arulambal St"
+    },
+    {
+      "id": "250364743",
+      "x": 80.241512,
+      "y": 13.048382,
+      "label": "Giri Rd #2"
+    },
+    {
+      "id": "250364745",
+      "x": 80.240059,
+      "y": 13.048707,
+      "label": "Sarangapani St & Thirumalai Pillai Rd"
+    },
+    {
+      "id": "250364747",
+      "x": 80.239255,
+      "y": 13.049932,
+      "label": "Arulambal St & Habibullah Rd"
+    },
+    {
+      "id": "2197215572",
+      "x": 80.231993,
+      "y": 13.041041,
+      "label": "Panagal Park"
+    },
+    {
+      "id": "250364757",
+      "x": 80.238719,
+      "y": 13.047985,
+      "label": "Arulambal St & Bhagirathi Ammal St"
+    },
+    {
+      "id": "1701464406",
+      "x": 80.238322,
+      "y": 13.044056,
+      "label": "Gopathi Narayanaswami Flyover & Gopathi Narayanaswami Rd #2"
+    },
+    {
+      "id": "2197415765",
+      "x": 80.233651,
+      "y": 13.05029,
+      "label": "North Usman Rd & Theagaraaya Gramani St"
+    },
+    {
+      "id": "250364758",
+      "x": 80.238981,
+      "y": 13.048933,
+      "label": "Arulambal St & Sarangapani St"
+    },
+    {
+      "id": "250364763",
+      "x": 80.235173,
+      "y": 13.047913,
+      "label": "Ramakanth St & Thilak St"
+    },
+    {
+      "id": "2197415767",
+      "x": 80.23378,
+      "y": 13.050894,
+      "label": "Habibullah Rd & North Usman Rd"
+    },
+    {
+      "id": "250364766",
+      "x": 80.236228,
+      "y": 13.051856,
+      "label": "Sarathy St"
+    },
+    {
+      "id": "250364767",
+      "x": 80.235862,
+      "y": 13.050543,
+      "label": "Habibullah Rd & Ramakanth St"
+    },
+    {
+      "id": "250364256",
+      "x": 80.235458,
+      "y": 13.044316,
+      "label": "Lakshmanan Chetty St & Raghaviah Rd"
+    },
+    {
+      "id": "250364769",
+      "x": 80.235597,
+      "y": 13.049632,
+      "label": "Bharathy Ngr 1st St & Ramakanth St"
+    },
+    {
+      "id": "250364258",
+      "x": 80.238645,
+      "y": 13.047997,
+      "label": "Arulambal St & Bhagirathi Ammal St #2"
+    },
+    {
+      "id": "1701464416",
+      "x": 80.241489,
+      "y": 13.045866,
+      "label": "Valmiki St"
+    },
+    {
+      "id": "250364260",
+      "x": 80.237829,
+      "y": 13.044701,
+      "label": "Arulambal St & Sambasivam St"
+    },
+    {
+      "id": "1701464415",
+      "x": 80.24161,
+      "y": 13.045734,
+      "label": "Gopathi Narayanaswami Rd & North Crescent Rd #2"
+    },
+    {
+      "id": "250364262",
+      "x": 80.235641,
+      "y": 13.045135,
+      "label": "Raghaviah Rd & Sambasivam St"
+    },
+    {
+      "id": "250364774",
+      "x": 80.234811,
+      "y": 13.049271,
+      "label": "2nd St & Thilak St Ext"
+    },
+    {
+      "id": "250364777",
+      "x": 80.234631,
+      "y": 13.04879,
+      "label": "3rd St & Thilak St Ext"
+    },
+    {
+      "id": "250364780",
+      "x": 80.23478,
+      "y": 13.049092,
+      "label": "Bhagirathi Amma St & Thilak St Ext"
+    },
+    {
+      "id": "250364269",
+      "x": 80.235653,
+      "y": 13.0452,
+      "label": "Raghaviah Rd & Somasundaram Rd"
+    },
+    {
+      "id": "250364782",
+      "x": 80.237459,
+      "y": 13.048284,
+      "label": "Bhagirathi Ammal St & Rajan St"
+    },
+    {
+      "id": "250364783",
+      "x": 80.239865,
+      "y": 13.047743,
+      "label": "Bhagirathi Ammal St & Thirumalai Pillai Rd"
+    },
+    {
+      "id": "2270331760",
+      "x": 80.237375,
+      "y": 13.043514,
+      "label": "Gopathi Narayanaswami Rd #2"
+    },
+    {
+      "id": "250364273",
+      "x": 80.235081,
+      "y": 13.045293,
+      "label": "Rama St & Somasundaram Rd"
+    },
+    {
+      "id": "250364274",
+      "x": 80.235426,
+      "y": 13.047096,
+      "label": "Bazullah Rd & Rama St"
+    },
+    {
+      "id": "250364275",
+      "x": 80.235838,
+      "y": 13.046123,
+      "label": "Raghaviah Rd & Raja Char St"
+    },
+    {
+      "id": "250364276",
+      "x": 80.23529,
+      "y": 13.046236,
+      "label": "Raja Char St & Rama St"
+    },
+    {
+      "id": "250364789",
+      "x": 80.235953,
+      "y": 13.047847,
+      "label": "Dr Sadasivam Rd & Trimoorthy St"
+    },
+    {
+      "id": "250364785",
+      "x": 80.236203,
+      "y": 13.048638,
+      "label": "Bhagirathi Amma St & Bhagirathi Ammal St"
+    },
+    {
+      "id": "250364784",
+      "x": 80.23541,
+      "y": 13.048902,
+      "label": "Bhagirathi Amma St & Ramakanth St"
+    },
+    {
+      "id": "250364792",
+      "x": 80.238469,
+      "y": 13.047292,
+      "label": "Arulambal St & Trimoorthy St"
+    },
+    {
+      "id": "2001005425",
+      "x": 80.238245,
+      "y": 13.042598,
+      "label": "Junction 425"
+    },
+    {
+      "id": "250364794",
+      "x": 80.239694,
+      "y": 13.04702,
+      "label": "Thirumalai Pillai Rd & Trimoorthy St"
+    },
+    {
+      "id": "250364798",
+      "x": 80.242461,
+      "y": 13.046736,
+      "label": "Chinnaiah St #2"
+    },
+    {
+      "id": "250364799",
+      "x": 80.242633,
+      "y": 13.046463,
+      "label": "Gopathi Narayanaswami Rd #3"
+    },
+    {
+      "id": "2239156096",
+      "x": 80.231806,
+      "y": 13.044535,
+      "label": "Anandhan St"
+    },
+    {
+      "id": "250364290",
+      "x": 80.232908,
+      "y": 13.046593,
+      "label": "Krishnan St & North Usman Rd #2"
+    },
+    {
+      "id": "250364291",
+      "x": 80.233492,
+      "y": 13.046509,
+      "label": "Hanumanthan St & Raja Char St"
+    },
+    {
+      "id": "2239156100",
+      "x": 80.231947,
+      "y": 13.045532,
+      "label": "Anandhan St #2"
+    },
+    {
+      "id": "250364293",
+      "x": 80.233203,
+      "y": 13.044983,
+      "label": "Hanumanthan St & Viyasar St"
+    },
+    {
+      "id": "2239156101",
+      "x": 80.231748,
+      "y": 13.045613,
+      "label": "Junction 101"
+    },
+    {
+      "id": "250364295",
+      "x": 80.233309,
+      "y": 13.045539,
+      "label": "Hanumanthan St & Somasundaram Rd"
+    },
+    {
+      "id": "250364803",
+      "x": 80.242051,
+      "y": 13.047594,
+      "label": "Junction 803"
+    },
+    {
+      "id": "250364809",
+      "x": 80.24226,
+      "y": 13.048208,
+      "label": "Giri Rd #3"
+    },
+    {
+      "id": "1702258054",
+      "x": 80.239585,
+      "y": 13.046344,
+      "label": "Thirumalai Rd"
+    },
+    {
+      "id": "250364815",
+      "x": 80.23964,
+      "y": 13.046743,
+      "label": "Thirumalai Pillai Rd & Valmiki St"
+    },
+    {
+      "id": "1702258067",
+      "x": 80.239431,
+      "y": 13.046281,
+      "label": "Bazullah Rd & Thirumalai Pillai Rd"
+    },
+    {
+      "id": "250364826",
+      "x": 80.236498,
+      "y": 13.050418,
+      "label": "Habibullah Rd & Sivasailam St"
+    },
+    {
+      "id": "2197215648",
+      "x": 80.232495,
+      "y": 13.044748,
+      "label": "North Usman Rd #3"
+    },
+    {
+      "id": "245579175",
+      "x": 80.232266,
+      "y": 13.042675,
+      "label": "Maharajapuram Santhanam Salai & North Usman Rd"
+    },
+    {
+      "id": "245579177",
+      "x": 80.233067,
+      "y": 13.047416,
+      "label": "Bazullah Rd & North Usman Rd #2"
+    },
+    {
+      "id": "2068622268",
+      "x": 80.235171,
+      "y": 13.042369,
+      "label": "Gopathi Narayanaswami Rd & Govindu St"
+    },
+    {
+      "id": "2001005502",
+      "x": 80.236259,
+      "y": 13.042018,
+      "label": "Gopalakrishnan St #2"
+    },
+    {
+      "id": "250364863",
+      "x": 80.237859,
+      "y": 13.050193,
+      "label": "Habibullah Rd #2"
+    },
+    {
+      "id": "2001005510",
+      "x": 80.236158,
+      "y": 13.041297,
+      "label": "Junction 510"
+    },
+    {
+      "id": "6497080775",
+      "x": 80.232402,
+      "y": 13.042663,
+      "label": "Maharajapuram Santhanam Salai & North Usman Rd #2"
+    },
+    {
+      "id": "13202819016",
+      "x": 80.232168,
+      "y": 13.047588,
+      "label": "Junction 016"
+    },
+    {
+      "id": "2068622282",
+      "x": 80.238197,
+      "y": 13.041833,
+      "label": "Gopalakrishnan St #3"
+    },
+    {
+      "id": "2068622283",
+      "x": 80.235968,
+      "y": 13.042662,
+      "label": "Junction 283"
+    },
+    {
+      "id": "2168563660",
+      "x": 80.241333,
+      "y": 13.047756,
+      "label": "Junction 660"
+    },
+    {
+      "id": "13202819017",
+      "x": 80.232175,
+      "y": 13.047623,
+      "label": "Junction 017"
+    },
+    {
+      "id": "13284331478",
+      "x": 80.230891,
+      "y": 13.037281,
+      "label": "North Usman Rd Flyover"
+    },
+    {
+      "id": "13233952215",
+      "x": 80.232659,
+      "y": 13.045636,
+      "label": "North Usman Rd & Somasundaram Rd #2"
+    },
+    {
+      "id": "11064218070",
+      "x": 80.235286,
+      "y": 13.048364,
+      "label": "Ramakanth St"
+    },
+    {
+      "id": "11064218071",
+      "x": 80.235621,
+      "y": 13.048279,
+      "label": "Junction 071"
+    },
+    {
+      "id": "1702258139",
+      "x": 80.239674,
+      "y": 13.046732,
+      "label": "Thirumalai Rd & Valmiki St"
+    },
+    {
+      "id": "13284331484",
+      "x": 80.231355,
+      "y": 13.038783,
+      "label": "North Usman Rd Flyover #2"
+    },
+    {
+      "id": "6496530402",
+      "x": 80.243618,
+      "y": 13.046905,
+      "label": "Gopathi Narayanaswami Rd #4"
+    },
+    {
+      "id": "9189087206",
+      "x": 80.231686,
+      "y": 13.046157,
+      "label": "Krishna Swamy St"
+    },
+    {
+      "id": "12442825702",
+      "x": 80.238084,
+      "y": 13.049122,
+      "label": "Sarangapani St"
+    },
+    {
+      "id": "1702257640",
+      "x": 80.23999,
+      "y": 13.045066,
+      "label": "Junction 640"
+    },
+    {
+      "id": "12442825703",
+      "x": 80.237985,
+      "y": 13.048803,
+      "label": "Junction 703"
+    },
+    {
+      "id": "9189087211",
+      "x": 80.235195,
+      "y": 13.050209,
+      "label": "Junction 211"
+    },
+    {
+      "id": "9189087213",
+      "x": 80.235091,
+      "y": 13.049735,
+      "label": "Bharathy Ngr 1st St"
+    },
+    {
+      "id": "247681522",
+      "x": 80.240271,
+      "y": 13.049743,
+      "label": "Habibullah Rd & Thirumalai Pillai Rd"
+    },
+    {
+      "id": "1702257652",
+      "x": 80.240477,
+      "y": 13.045115,
+      "label": "Gopathi Narayanaswami Rd #5"
+    },
+    {
+      "id": "12485887992",
+      "x": 80.235927,
+      "y": 13.042628,
+      "label": "Junction 992"
+    },
+    {
+      "id": "1702257658",
+      "x": 80.240226,
+      "y": 13.045195,
+      "label": "Thirumalai Rd #2"
+    },
+    {
+      "id": "12485887995",
+      "x": 80.235822,
+      "y": 13.042712,
+      "label": "Gopathi Narayanaswami Rd #6"
+    },
+    {
+      "id": "250364921",
+      "x": 80.236562,
+      "y": 13.051008,
+      "label": "Sivasailam St"
+    }
+  ],
+  "edges": [
+    {
+      "from_node": "12852450817",
+      "to_node": "2197203112",
+      "base_weight": 186.74,
+      "street_name": "Panagal Park"
+    },
+    {
+      "from_node": "12852450817",
+      "to_node": "12852450821",
+      "base_weight": 139.5,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "12852450821",
+      "to_node": "2197215572",
+      "base_weight": 17.87,
+      "street_name": "Panagal Park"
+    },
+    {
+      "from_node": "1702257674",
+      "to_node": "1701464416",
+      "base_weight": 136.71,
+      "street_name": ""
+    },
+    {
+      "from_node": "1702257674",
+      "to_node": "1702257652",
+      "base_weight": 20.96,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364946",
+      "to_node": "250364782",
+      "base_weight": 105.49,
+      "street_name": "Rajan Street"
+    },
+    {
+      "from_node": "250364946",
+      "to_node": "250364715",
+      "base_weight": 136.88,
+      "street_name": "Sarangapani Street"
+    },
+    {
+      "from_node": "250364946",
+      "to_node": "12442825702",
+      "base_weight": 41.1,
+      "street_name": "Sarangapani Street"
+    },
+    {
+      "from_node": "1702257683",
+      "to_node": "1702258067",
+      "base_weight": 128.4,
+      "street_name": "Thirumalai Pillai Road"
+    },
+    {
+      "from_node": "250364947",
+      "to_node": "250364792",
+      "base_weight": 133.28,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "250364947",
+      "to_node": "250364782",
+      "base_weight": 83.46,
+      "street_name": "Rajan Street"
+    },
+    {
+      "from_node": "250364947",
+      "to_node": "6496557086",
+      "base_weight": 18.96,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "7024787475",
+      "to_node": "250364040",
+      "base_weight": 15.71,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "7024787475",
+      "to_node": "250364072",
+      "base_weight": 77.8,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "7024787475",
+      "to_node": "13202819016",
+      "base_weight": 193.24,
+      "street_name": ""
+    },
+    {
+      "from_node": "12678213142",
+      "to_node": "2197203133",
+      "base_weight": 18.41,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "12678213142",
+      "to_node": "11951492660",
+      "base_weight": 23.75,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "1702258197",
+      "to_node": "6496056616",
+      "base_weight": 40.03,
+      "street_name": "Thirumalai Road"
+    },
+    {
+      "from_node": "1702258197",
+      "to_node": "12231587572",
+      "base_weight": 234.93,
+      "street_name": "Chinnaiah Street"
+    },
+    {
+      "from_node": "250737686",
+      "to_node": "250364066",
+      "base_weight": 167.28,
+      "street_name": "Vasan Street"
+    },
+    {
+      "from_node": "250737686",
+      "to_node": "250364178",
+      "base_weight": 82.27,
+      "street_name": "Car Track Road"
+    },
+    {
+      "from_node": "250737686",
+      "to_node": "250737685",
+      "base_weight": 68.16,
+      "street_name": "Car Track Road"
+    },
+    {
+      "from_node": "250737686",
+      "to_node": "250364068",
+      "base_weight": 127.43,
+      "street_name": "Nehru Street"
+    },
+    {
+      "from_node": "250737685",
+      "to_node": "250737686",
+      "base_weight": 68.16,
+      "street_name": "Car Track Road"
+    },
+    {
+      "from_node": "10216123926",
+      "to_node": "250364040",
+      "base_weight": 188.86,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "6496557085",
+      "to_node": "250364070",
+      "base_weight": 147.56,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "6496557085",
+      "to_node": "250364069",
+      "base_weight": 99.31,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "6496557085",
+      "to_node": "6496557086",
+      "base_weight": 87.63,
+      "street_name": "Rajan Street"
+    },
+    {
+      "from_node": "6496557086",
+      "to_node": "250364789",
+      "base_weight": 127.26,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "6496557086",
+      "to_node": "6496557085",
+      "base_weight": 87.63,
+      "street_name": "Rajan Street"
+    },
+    {
+      "from_node": "6496557086",
+      "to_node": "250364947",
+      "base_weight": 18.96,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "298154015",
+      "to_node": "298154045",
+      "base_weight": 76.66,
+      "street_name": "Gangai Amman Street"
+    },
+    {
+      "from_node": "298154015",
+      "to_node": "250364096",
+      "base_weight": 21.26,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "298154015",
+      "to_node": "250364043",
+      "base_weight": 86.78,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "12485887993",
+      "to_node": "2001025751",
+      "base_weight": 107.25,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "12485887993",
+      "to_node": "12485887994",
+      "base_weight": 10.27,
+      "street_name": ""
+    },
+    {
+      "from_node": "12485887994",
+      "to_node": "2270331760",
+      "base_weight": 176.82,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "12485887994",
+      "to_node": "2068622283",
+      "base_weight": 11.32,
+      "street_name": ""
+    },
+    {
+      "from_node": "250737703",
+      "to_node": "250364774",
+      "base_weight": 56.78,
+      "street_name": "Thilak Street Ext"
+    },
+    {
+      "from_node": "250737703",
+      "to_node": "9189087213",
+      "base_weight": 19.54,
+      "street_name": "Bharathy Nagar 1st Street"
+    },
+    {
+      "from_node": "250737704",
+      "to_node": "250364763",
+      "base_weight": 88.53,
+      "street_name": "Thilak Street"
+    },
+    {
+      "from_node": "250737704",
+      "to_node": "2197415695",
+      "base_weight": 120.08,
+      "street_name": "Thilak Street"
+    },
+    {
+      "from_node": "250737704",
+      "to_node": "250364777",
+      "base_weight": 82.96,
+      "street_name": "Thilak Street Ext"
+    },
+    {
+      "from_node": "250737705",
+      "to_node": "250364715",
+      "base_weight": 18.3,
+      "street_name": "Sivasailam Street"
+    },
+    {
+      "from_node": "250737705",
+      "to_node": "250364826",
+      "base_weight": 103.86,
+      "street_name": "Sivasailam Street"
+    },
+    {
+      "from_node": "250737705",
+      "to_node": "250364769",
+      "base_weight": 79.08,
+      "street_name": "Bharathy Nagar 1st Street"
+    },
+    {
+      "from_node": "11951492660",
+      "to_node": "13284331484",
+      "base_weight": 655.24,
+      "street_name": "North Usman Road Flyover"
+    },
+    {
+      "from_node": "11951492660",
+      "to_node": "2197215648",
+      "base_weight": 24.92,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "864565814",
+      "to_node": "2197415692",
+      "base_weight": 26.79,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "864565814",
+      "to_node": "865930933",
+      "base_weight": 236.81,
+      "street_name": "Bazulla Flyover"
+    },
+    {
+      "from_node": "250364477",
+      "to_node": "250364491",
+      "base_weight": 53.49,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364477",
+      "to_node": "250364480",
+      "base_weight": 8.34,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364477",
+      "to_node": "308209326",
+      "base_weight": 167.74,
+      "street_name": "Kuppusamy Street"
+    },
+    {
+      "from_node": "298154045",
+      "to_node": "298154015",
+      "base_weight": 76.66,
+      "street_name": "Gangai Amman Street"
+    },
+    {
+      "from_node": "250364480",
+      "to_node": "250364477",
+      "base_weight": 8.34,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364480",
+      "to_node": "250364260",
+      "base_weight": 70.59,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364480",
+      "to_node": "250364486",
+      "base_weight": 244.63,
+      "street_name": "Singara Mudaliar Street"
+    },
+    {
+      "from_node": "11777931845",
+      "to_node": "308209327",
+      "base_weight": 23.11,
+      "street_name": "Dr Nair Road"
+    },
+    {
+      "from_node": "250364486",
+      "to_node": "250364480",
+      "base_weight": 244.63,
+      "street_name": "Singara Mudaliar Street"
+    },
+    {
+      "from_node": "250364486",
+      "to_node": "250364275",
+      "base_weight": 43.19,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364486",
+      "to_node": "250364269",
+      "base_weight": 61.37,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "11606983238",
+      "to_node": "1702258067",
+      "base_weight": 31.5,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "11606983238",
+      "to_node": "11606983243",
+      "base_weight": 19.77,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "11606983238",
+      "to_node": "11606983243",
+      "base_weight": 142.32,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364491",
+      "to_node": "250364070",
+      "base_weight": 77.16,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364491",
+      "to_node": "250364477",
+      "base_weight": 53.49,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364491",
+      "to_node": "250364495",
+      "base_weight": 245.94,
+      "street_name": "Yogambal Street"
+    },
+    {
+      "from_node": "11606983243",
+      "to_node": "11606983238",
+      "base_weight": 19.77,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "11606983243",
+      "to_node": "11606983238",
+      "base_weight": 142.32,
+      "street_name": ""
+    },
+    {
+      "from_node": "11606983243",
+      "to_node": "250364070",
+      "base_weight": 79.79,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364495",
+      "to_node": "250364491",
+      "base_weight": 245.94,
+      "street_name": "Yogambal Street"
+    },
+    {
+      "from_node": "250364495",
+      "to_node": "250364069",
+      "base_weight": 74.4,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364495",
+      "to_node": "250364275",
+      "base_weight": 25.65,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364504",
+      "to_node": "250364293",
+      "base_weight": 193.19,
+      "street_name": "Viyasar Street"
+    },
+    {
+      "from_node": "250364504",
+      "to_node": "250364200",
+      "base_weight": 61.3,
+      "street_name": "Viyasar Street"
+    },
+    {
+      "from_node": "250364504",
+      "to_node": "250364273",
+      "base_weight": 65.07,
+      "street_name": "Rama Street"
+    },
+    {
+      "from_node": "250364512",
+      "to_node": "250364291",
+      "base_weight": 93.72,
+      "street_name": "Hanumanthan Street"
+    },
+    {
+      "from_node": "250364512",
+      "to_node": "245579177",
+      "base_weight": 61.76,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364512",
+      "to_node": "250364274",
+      "base_weight": 196.29,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364519",
+      "to_node": "2239156100",
+      "base_weight": 74.04,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364519",
+      "to_node": "13233952215",
+      "base_weight": 22.98,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "250364033",
+      "to_node": "250364184",
+      "base_weight": 61.02,
+      "street_name": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "from_node": "250364033",
+      "to_node": "250364068",
+      "base_weight": 93.72,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364040",
+      "to_node": "7024787475",
+      "base_weight": 15.71,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364040",
+      "to_node": "864565814",
+      "base_weight": 256.81,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364040",
+      "to_node": "10216123926",
+      "base_weight": 188.86,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "2001037450",
+      "to_node": "2068622282",
+      "base_weight": 23.68,
+      "street_name": "Gopalakrishnan Street"
+    },
+    {
+      "from_node": "250364043",
+      "to_node": "2197415702",
+      "base_weight": 306.25,
+      "street_name": "Unnamalai Ammal Street"
+    },
+    {
+      "from_node": "250364043",
+      "to_node": "250364075",
+      "base_weight": 74.99,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364043",
+      "to_node": "298154015",
+      "base_weight": 86.78,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "247681683",
+      "to_node": "250364767",
+      "base_weight": 62.29,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "12485920409",
+      "to_node": "12485887995",
+      "base_weight": 10.67,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364576",
+      "to_node": "2197415689",
+      "base_weight": 78.5,
+      "street_name": "Krishnan Street"
+    },
+    {
+      "from_node": "250364066",
+      "to_node": "250737686",
+      "base_weight": 167.28,
+      "street_name": "Vasan Street"
+    },
+    {
+      "from_node": "250364066",
+      "to_node": "2197215648",
+      "base_weight": 148.12,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "250364068",
+      "to_node": "250364033",
+      "base_weight": 93.72,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364068",
+      "to_node": "250737686",
+      "base_weight": 127.43,
+      "street_name": "Nehru Street"
+    },
+    {
+      "from_node": "250364069",
+      "to_node": "6496557085",
+      "base_weight": 99.31,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364069",
+      "to_node": "250364713",
+      "base_weight": 25.27,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364069",
+      "to_node": "250364495",
+      "base_weight": 74.4,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364070",
+      "to_node": "250364792",
+      "base_weight": 86.78,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364070",
+      "to_node": "250364491",
+      "base_weight": 77.16,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364070",
+      "to_node": "11606983243",
+      "base_weight": 79.79,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364070",
+      "to_node": "6496557085",
+      "base_weight": 147.56,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364072",
+      "to_node": "7024787475",
+      "base_weight": 77.8,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364072",
+      "to_node": "250364624",
+      "base_weight": 63.19,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364072",
+      "to_node": "12136684237",
+      "base_weight": 217.13,
+      "street_name": "Chari Street"
+    },
+    {
+      "from_node": "2197203112",
+      "to_node": "2068622268",
+      "base_weight": 136.69,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "250364075",
+      "to_node": "250364636",
+      "base_weight": 161.99,
+      "street_name": "Ramakrishna Street"
+    },
+    {
+      "from_node": "250364075",
+      "to_node": "250364624",
+      "base_weight": 34.53,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364075",
+      "to_node": "250364043",
+      "base_weight": 74.99,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "308209325",
+      "to_node": "1701464406",
+      "base_weight": 4.85,
+      "street_name": ""
+    },
+    {
+      "from_node": "308209325",
+      "to_node": "250364229",
+      "base_weight": 75.98,
+      "street_name": ""
+    },
+    {
+      "from_node": "308209325",
+      "to_node": "308209326",
+      "base_weight": 101.61,
+      "street_name": ""
+    },
+    {
+      "from_node": "308209326",
+      "to_node": "1702257640",
+      "base_weight": 108.51,
+      "street_name": ""
+    },
+    {
+      "from_node": "308209326",
+      "to_node": "250364477",
+      "base_weight": 167.74,
+      "street_name": "Kuppusamy Street"
+    },
+    {
+      "from_node": "308209327",
+      "to_node": "1702257658",
+      "base_weight": 7.26,
+      "street_name": ""
+    },
+    {
+      "from_node": "308209327",
+      "to_node": "1702257683",
+      "base_weight": 20.87,
+      "street_name": "Thirumalai Pillai Road"
+    },
+    {
+      "from_node": "308209330",
+      "to_node": "11777931845",
+      "base_weight": 7.16,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "865930933",
+      "to_node": "864565814",
+      "base_weight": 236.81,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "2197203129",
+      "to_node": "6497080775",
+      "base_weight": 34.13,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197203129",
+      "to_node": "2068622268",
+      "base_weight": 308.96,
+      "street_name": "Govindu Street"
+    },
+    {
+      "from_node": "2197203130",
+      "to_node": "2001025766",
+      "base_weight": 362.95,
+      "street_name": "Nathamuni Street"
+    },
+    {
+      "from_node": "2197203130",
+      "to_node": "2197203129",
+      "base_weight": 62.66,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197203132",
+      "to_node": "2001025751",
+      "base_weight": 316.6,
+      "street_name": "Coats Road"
+    },
+    {
+      "from_node": "2197203132",
+      "to_node": "2197203130",
+      "base_weight": 52.46,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197203133",
+      "to_node": "2001025744",
+      "base_weight": 313.49,
+      "street_name": "Murugesan Street"
+    },
+    {
+      "from_node": "2197203133",
+      "to_node": "2197203132",
+      "base_weight": 63.45,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197203134",
+      "to_node": "250364293",
+      "base_weight": 63.18,
+      "street_name": "Viyasar Street"
+    },
+    {
+      "from_node": "2197203134",
+      "to_node": "12678213142",
+      "base_weight": 37.08,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "250364096",
+      "to_node": "298154015",
+      "base_weight": 21.26,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364096",
+      "to_node": "2197415765",
+      "base_weight": 301.28,
+      "street_name": "Theagaraaya Gramani Street"
+    },
+    {
+      "from_node": "250364096",
+      "to_node": "250364098",
+      "base_weight": 69.32,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364098",
+      "to_node": "2197415767",
+      "base_weight": 291.73,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "250364098",
+      "to_node": "250364096",
+      "base_weight": 69.32,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "12136684237",
+      "to_node": "2197415696",
+      "base_weight": 73.72,
+      "street_name": "Chari Street"
+    },
+    {
+      "from_node": "12136684237",
+      "to_node": "12136684238",
+      "base_weight": 47.33,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684237",
+      "to_node": "250364072",
+      "base_weight": 217.13,
+      "street_name": "Chari Street"
+    },
+    {
+      "from_node": "12136684238",
+      "to_node": "12136684242",
+      "base_weight": 19.01,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684238",
+      "to_node": "12136684237",
+      "base_weight": 47.33,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684238",
+      "to_node": "12136684244",
+      "base_weight": 22.07,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684238",
+      "to_node": "12136684241",
+      "base_weight": 28.65,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684239",
+      "to_node": "12136684242",
+      "base_weight": 21.05,
+      "street_name": ""
+    },
+    {
+      "from_node": "2001025744",
+      "to_node": "2197203133",
+      "base_weight": 313.49,
+      "street_name": "Murugesan Street"
+    },
+    {
+      "from_node": "2001025744",
+      "to_node": "250364256",
+      "base_weight": 23.58,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "2001025744",
+      "to_node": "2001025751",
+      "base_weight": 58.09,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "12136684241",
+      "to_node": "12136684238",
+      "base_weight": 28.65,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684242",
+      "to_node": "12136684239",
+      "base_weight": 21.05,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684242",
+      "to_node": "12136684238",
+      "base_weight": 19.01,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684242",
+      "to_node": "12136684243",
+      "base_weight": 29.83,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684242",
+      "to_node": "12136684247",
+      "base_weight": 31.43,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364624",
+      "to_node": "250364072",
+      "base_weight": 63.19,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364624",
+      "to_node": "250364075",
+      "base_weight": 34.53,
+      "street_name": "Mambalam High Road"
+    },
+    {
+      "from_node": "250364624",
+      "to_node": "250364636",
+      "base_weight": 191.38,
+      "street_name": "Vivekananda Street"
+    },
+    {
+      "from_node": "12136684244",
+      "to_node": "12136684240",
+      "base_weight": 15.63,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684244",
+      "to_node": "12136684238",
+      "base_weight": 22.07,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684244",
+      "to_node": "12136684245",
+      "base_weight": 28.53,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684244",
+      "to_node": "12136684246",
+      "base_weight": 32.74,
+      "street_name": ""
+    },
+    {
+      "from_node": "2001025751",
+      "to_node": "2197203132",
+      "base_weight": 316.6,
+      "street_name": "Coats Road"
+    },
+    {
+      "from_node": "2001025751",
+      "to_node": "2001025744",
+      "base_weight": 58.09,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "2001025751",
+      "to_node": "12485887993",
+      "base_weight": 107.25,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "2001025752",
+      "to_node": "2001005502",
+      "base_weight": 40.99,
+      "street_name": ""
+    },
+    {
+      "from_node": "2001025752",
+      "to_node": "2001005510",
+      "base_weight": 39.91,
+      "street_name": ""
+    },
+    {
+      "from_node": "2001025752",
+      "to_node": "2001025770",
+      "base_weight": 77.45,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684243",
+      "to_node": "12136684242",
+      "base_weight": 29.83,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684247",
+      "to_node": "12136684242",
+      "base_weight": 31.43,
+      "street_name": ""
+    },
+    {
+      "from_node": "12136684245",
+      "to_node": "12136684244",
+      "base_weight": 28.53,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364636",
+      "to_node": "250364075",
+      "base_weight": 161.99,
+      "street_name": "Ramakrishna Street"
+    },
+    {
+      "from_node": "250364636",
+      "to_node": "2197415698",
+      "base_weight": 136.66,
+      "street_name": "Ramakrishna Street"
+    },
+    {
+      "from_node": "250364636",
+      "to_node": "250364624",
+      "base_weight": 191.38,
+      "street_name": "Vivekananda Street"
+    },
+    {
+      "from_node": "12136684246",
+      "to_node": "12136684244",
+      "base_weight": 32.74,
+      "street_name": ""
+    },
+    {
+      "from_node": "250365152",
+      "to_node": "250364799",
+      "base_weight": 45.21,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "2001025766",
+      "to_node": "12485887995",
+      "base_weight": 47.4,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "2001025766",
+      "to_node": "2197203130",
+      "base_weight": 362.95,
+      "street_name": "Nathamuni Street"
+    },
+    {
+      "from_node": "12136684240",
+      "to_node": "12136684244",
+      "base_weight": 15.63,
+      "street_name": ""
+    },
+    {
+      "from_node": "2001025770",
+      "to_node": "2001025752",
+      "base_weight": 77.45,
+      "street_name": ""
+    },
+    {
+      "from_node": "1701428465",
+      "to_node": "1701464415",
+      "base_weight": 443.69,
+      "street_name": "North Crescent Road"
+    },
+    {
+      "from_node": "12231587572",
+      "to_node": "250364798",
+      "base_weight": 59.13,
+      "street_name": "Chinnaiah Street"
+    },
+    {
+      "from_node": "12231587572",
+      "to_node": "12231587573",
+      "base_weight": 37.63,
+      "street_name": ""
+    },
+    {
+      "from_node": "12231587572",
+      "to_node": "1702258197",
+      "base_weight": 234.93,
+      "street_name": "Chinnaiah Street"
+    },
+    {
+      "from_node": "12231587573",
+      "to_node": "12231587572",
+      "base_weight": 37.63,
+      "street_name": ""
+    },
+    {
+      "from_node": "2197415670",
+      "to_node": "245579175",
+      "base_weight": 49.35,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415670",
+      "to_node": "12852450817",
+      "base_weight": 15.64,
+      "street_name": "Panagal Park"
+    },
+    {
+      "from_node": "11813014775",
+      "to_node": "11813014776",
+      "base_weight": 13.91,
+      "street_name": ""
+    },
+    {
+      "from_node": "11813014775",
+      "to_node": "2239156101",
+      "base_weight": 29.65,
+      "street_name": ""
+    },
+    {
+      "from_node": "11813014775",
+      "to_node": "2239156101",
+      "base_weight": 38.53,
+      "street_name": ""
+    },
+    {
+      "from_node": "11813014776",
+      "to_node": "11813014775",
+      "base_weight": 13.91,
+      "street_name": ""
+    },
+    {
+      "from_node": "2197415682",
+      "to_node": "13233952215",
+      "base_weight": 6.81,
+      "street_name": "Somasundaram Road"
+    },
+    {
+      "from_node": "2197415682",
+      "to_node": "250364295",
+      "base_weight": 64.33,
+      "street_name": "Somasundaram Road"
+    },
+    {
+      "from_node": "2197415682",
+      "to_node": "2197203134",
+      "base_weight": 64.1,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415684",
+      "to_node": "2197415689",
+      "base_weight": 65.87,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415684",
+      "to_node": "9189087206",
+      "base_weight": 113.98,
+      "street_name": "Krishna Swamy Street"
+    },
+    {
+      "from_node": "2197415689",
+      "to_node": "2197415692",
+      "base_weight": 94.38,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415689",
+      "to_node": "250364290",
+      "base_weight": 8.05,
+      "street_name": "Krishnan Street"
+    },
+    {
+      "from_node": "2197415689",
+      "to_node": "250364576",
+      "base_weight": 78.5,
+      "street_name": "Krishnan Street"
+    },
+    {
+      "from_node": "2197415692",
+      "to_node": "2197415696",
+      "base_weight": 89.79,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415692",
+      "to_node": "245579177",
+      "base_weight": 10.06,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "2197415692",
+      "to_node": "864565814",
+      "base_weight": 26.79,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "2197415695",
+      "to_node": "250737704",
+      "base_weight": 120.08,
+      "street_name": "Thilak Street"
+    },
+    {
+      "from_node": "2197415695",
+      "to_node": "245579177",
+      "base_weight": 94.28,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415696",
+      "to_node": "12136684237",
+      "base_weight": 73.72,
+      "street_name": "Chari Street"
+    },
+    {
+      "from_node": "2197415696",
+      "to_node": "2197415698",
+      "base_weight": 89.85,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415697",
+      "to_node": "2197415698",
+      "base_weight": 11.95,
+      "street_name": "Ramakrishna Street"
+    },
+    {
+      "from_node": "2197415697",
+      "to_node": "250364777",
+      "base_weight": 127.2,
+      "street_name": "3rd Street"
+    },
+    {
+      "from_node": "2197415697",
+      "to_node": "2197415695",
+      "base_weight": 83.91,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415698",
+      "to_node": "250364636",
+      "base_weight": 136.66,
+      "street_name": "Ramakrishna Street"
+    },
+    {
+      "from_node": "2197415698",
+      "to_node": "2197415697",
+      "base_weight": 11.95,
+      "street_name": "Ramakrishna Street"
+    },
+    {
+      "from_node": "2197415698",
+      "to_node": "2197415702",
+      "base_weight": 72.42,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "250364178",
+      "to_node": "245579175",
+      "base_weight": 175.94,
+      "street_name": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "from_node": "250364178",
+      "to_node": "250364184",
+      "base_weight": 77.62,
+      "street_name": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "from_node": "250364178",
+      "to_node": "250737686",
+      "base_weight": 82.27,
+      "street_name": "Car Track Road"
+    },
+    {
+      "from_node": "2197415700",
+      "to_node": "250364774",
+      "base_weight": 134.28,
+      "street_name": "2nd Street"
+    },
+    {
+      "from_node": "2197415700",
+      "to_node": "2197415697",
+      "base_weight": 61.89,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415702",
+      "to_node": "250364043",
+      "base_weight": 306.25,
+      "street_name": "Unnamalai Ammal Street"
+    },
+    {
+      "from_node": "2197415702",
+      "to_node": "2197415765",
+      "base_weight": 74.1,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "250364184",
+      "to_node": "250364178",
+      "base_weight": 77.62,
+      "street_name": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "from_node": "250364184",
+      "to_node": "250364033",
+      "base_weight": 61.02,
+      "street_name": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "from_node": "250364200",
+      "to_node": "250364504",
+      "base_weight": 61.3,
+      "street_name": "Viyasar Street"
+    },
+    {
+      "from_node": "250364200",
+      "to_node": "250364262",
+      "base_weight": 58.53,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364200",
+      "to_node": "250364256",
+      "base_weight": 34.66,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364713",
+      "to_node": "250364712",
+      "base_weight": 80.37,
+      "street_name": "Dr Sadasivam Road"
+    },
+    {
+      "from_node": "250364713",
+      "to_node": "250364069",
+      "base_weight": 25.27,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364713",
+      "to_node": "250364274",
+      "base_weight": 40.2,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364712",
+      "to_node": "250364763",
+      "base_weight": 83.81,
+      "street_name": "Thilak Street"
+    },
+    {
+      "from_node": "250364712",
+      "to_node": "250364789",
+      "base_weight": 10.28,
+      "street_name": "Dr Sadasivam Road"
+    },
+    {
+      "from_node": "250364712",
+      "to_node": "250364713",
+      "base_weight": 80.37,
+      "street_name": "Dr Sadasivam Road"
+    },
+    {
+      "from_node": "250364715",
+      "to_node": "250364785",
+      "base_weight": 97.96,
+      "street_name": "Dr Sadasivam Road"
+    },
+    {
+      "from_node": "250364715",
+      "to_node": "250737705",
+      "base_weight": 18.3,
+      "street_name": "Sivasailam Street"
+    },
+    {
+      "from_node": "250364715",
+      "to_node": "250364946",
+      "base_weight": 136.88,
+      "street_name": "Sarangapani Street"
+    },
+    {
+      "from_node": "6496056616",
+      "to_node": "250364794",
+      "base_weight": 4.55,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "6496056616",
+      "to_node": "1702258139",
+      "base_weight": 32.38,
+      "street_name": "Thirumalai Road"
+    },
+    {
+      "from_node": "250364206",
+      "to_node": "250364256",
+      "base_weight": 194.48,
+      "street_name": "Lakshmanan Chetty Street"
+    },
+    {
+      "from_node": "250364206",
+      "to_node": "250364229",
+      "base_weight": 88.5,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364206",
+      "to_node": "2270331760",
+      "base_weight": 52.84,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364719",
+      "to_node": "250364809",
+      "base_weight": 73.92,
+      "street_name": "Giri Road"
+    },
+    {
+      "from_node": "250364719",
+      "to_node": "250364727",
+      "base_weight": 267.76,
+      "street_name": "Giri Road"
+    },
+    {
+      "from_node": "250364719",
+      "to_node": "250364722",
+      "base_weight": 139.1,
+      "street_name": "Giri Road"
+    },
+    {
+      "from_node": "250364722",
+      "to_node": "250364727",
+      "base_weight": 187.73,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "250364722",
+      "to_node": "6496530402",
+      "base_weight": 11.37,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364722",
+      "to_node": "250364719",
+      "base_weight": 139.1,
+      "street_name": "Giri Road"
+    },
+    {
+      "from_node": "250364727",
+      "to_node": "250364719",
+      "base_weight": 267.76,
+      "street_name": "Giri Road"
+    },
+    {
+      "from_node": "250364229",
+      "to_node": "250364260",
+      "base_weight": 28.73,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364229",
+      "to_node": "308209325",
+      "base_weight": 75.98,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364229",
+      "to_node": "250364206",
+      "base_weight": 88.5,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364743",
+      "to_node": "250364809",
+      "base_weight": 83.3,
+      "street_name": "Giri Road"
+    },
+    {
+      "from_node": "250364745",
+      "to_node": "250364758",
+      "base_weight": 119.43,
+      "street_name": "Sarangapani Street"
+    },
+    {
+      "from_node": "250364745",
+      "to_node": "247681522",
+      "base_weight": 117.54,
+      "street_name": "Thirumalai Pillai Road"
+    },
+    {
+      "from_node": "250364747",
+      "to_node": "247681522",
+      "base_weight": 112.06,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "250364747",
+      "to_node": "250364758",
+      "base_weight": 114.92,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "2197215572",
+      "to_node": "2197415670",
+      "base_weight": 135.41,
+      "street_name": "Panagal Park"
+    },
+    {
+      "from_node": "250364757",
+      "to_node": "250364758",
+      "base_weight": 109.17,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364757",
+      "to_node": "250364783",
+      "base_weight": 127.13,
+      "street_name": "Bhagirathi Ammal Street"
+    },
+    {
+      "from_node": "250364757",
+      "to_node": "250364258",
+      "base_weight": 8.08,
+      "street_name": "Bhagirathi Ammal Street"
+    },
+    {
+      "from_node": "1701464406",
+      "to_node": "308209325",
+      "base_weight": 4.85,
+      "street_name": ""
+    },
+    {
+      "from_node": "1701464406",
+      "to_node": "250365152",
+      "base_weight": 493.03,
+      "street_name": "Gopathi Narayanaswami Flyover"
+    },
+    {
+      "from_node": "2197415765",
+      "to_node": "2197415767",
+      "base_weight": 68.62,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2197415765",
+      "to_node": "250364096",
+      "base_weight": 301.28,
+      "street_name": "Theagaraaya Gramani Street"
+    },
+    {
+      "from_node": "250364758",
+      "to_node": "250364757",
+      "base_weight": 109.17,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364758",
+      "to_node": "250364747",
+      "base_weight": 114.92,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364758",
+      "to_node": "250364745",
+      "base_weight": 119.43,
+      "street_name": "Sarangapani Street"
+    },
+    {
+      "from_node": "250364758",
+      "to_node": "12442825702",
+      "base_weight": 99.42,
+      "street_name": "Sarangapani Street"
+    },
+    {
+      "from_node": "250364763",
+      "to_node": "250364712",
+      "base_weight": 83.81,
+      "street_name": "Thilak Street"
+    },
+    {
+      "from_node": "250364763",
+      "to_node": "250737704",
+      "base_weight": 88.53,
+      "street_name": "Thilak Street"
+    },
+    {
+      "from_node": "250364763",
+      "to_node": "11064218070",
+      "base_weight": 51.5,
+      "street_name": "Ramakanth Street"
+    },
+    {
+      "from_node": "2197415767",
+      "to_node": "250364098",
+      "base_weight": 291.73,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "250364766",
+      "to_node": "250364767",
+      "base_weight": 151.36,
+      "street_name": "Sarathy Street"
+    },
+    {
+      "from_node": "250364767",
+      "to_node": "247681683",
+      "base_weight": 62.29,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "250364767",
+      "to_node": "250364826",
+      "base_weight": 70.28,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "250364767",
+      "to_node": "250364769",
+      "base_weight": 105.29,
+      "street_name": "Ramakanth Street"
+    },
+    {
+      "from_node": "250364767",
+      "to_node": "250364766",
+      "base_weight": 151.36,
+      "street_name": "Sarathy Street"
+    },
+    {
+      "from_node": "250364256",
+      "to_node": "250364206",
+      "base_weight": 194.48,
+      "street_name": "Lakshmanan Chetty Street"
+    },
+    {
+      "from_node": "250364256",
+      "to_node": "250364200",
+      "base_weight": 34.66,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364256",
+      "to_node": "2001025744",
+      "base_weight": 23.58,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364769",
+      "to_node": "250364767",
+      "base_weight": 105.29,
+      "street_name": "Ramakanth Street"
+    },
+    {
+      "from_node": "250364769",
+      "to_node": "250364784",
+      "base_weight": 83.67,
+      "street_name": "Ramakanth Street"
+    },
+    {
+      "from_node": "250364769",
+      "to_node": "9189087213",
+      "base_weight": 56.05,
+      "street_name": "Bharathy Nagar 1st Street"
+    },
+    {
+      "from_node": "250364769",
+      "to_node": "250737705",
+      "base_weight": 79.08,
+      "street_name": "Bharathy Nagar 1st Street"
+    },
+    {
+      "from_node": "250364258",
+      "to_node": "250364792",
+      "base_weight": 80.77,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364258",
+      "to_node": "250364757",
+      "base_weight": 8.08,
+      "street_name": "Bhagirathi Ammal Street"
+    },
+    {
+      "from_node": "250364258",
+      "to_node": "250364782",
+      "base_weight": 132.29,
+      "street_name": "Bhagirathi Ammal Street"
+    },
+    {
+      "from_node": "1701464416",
+      "to_node": "1702258139",
+      "base_weight": 232.29,
+      "street_name": "Valmiki Street"
+    },
+    {
+      "from_node": "1701464416",
+      "to_node": "250365152",
+      "base_weight": 97.09,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364260",
+      "to_node": "250364480",
+      "base_weight": 70.59,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364260",
+      "to_node": "250364229",
+      "base_weight": 28.73,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364260",
+      "to_node": "250364262",
+      "base_weight": 241.83,
+      "street_name": "Sambasivam Street"
+    },
+    {
+      "from_node": "1701464415",
+      "to_node": "1702257652",
+      "base_weight": 140.7,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "1701464415",
+      "to_node": "1701428465",
+      "base_weight": 443.69,
+      "street_name": "North Crescent Road"
+    },
+    {
+      "from_node": "250364262",
+      "to_node": "250364260",
+      "base_weight": 241.83,
+      "street_name": "Sambasivam Street"
+    },
+    {
+      "from_node": "250364262",
+      "to_node": "250364269",
+      "base_weight": 7.39,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364262",
+      "to_node": "250364200",
+      "base_weight": 58.53,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364774",
+      "to_node": "2197415700",
+      "base_weight": 134.28,
+      "street_name": "2nd Street"
+    },
+    {
+      "from_node": "250364774",
+      "to_node": "250737703",
+      "base_weight": 56.78,
+      "street_name": "Thilak Street Ext"
+    },
+    {
+      "from_node": "250364774",
+      "to_node": "250364780",
+      "base_weight": 20.19,
+      "street_name": "Thilak Street Ext"
+    },
+    {
+      "from_node": "250364777",
+      "to_node": "250364780",
+      "base_weight": 37.26,
+      "street_name": "Thilak Street Ext"
+    },
+    {
+      "from_node": "250364777",
+      "to_node": "250737704",
+      "base_weight": 82.96,
+      "street_name": "Thilak Street Ext"
+    },
+    {
+      "from_node": "250364777",
+      "to_node": "2197415697",
+      "base_weight": 127.2,
+      "street_name": "3rd Street"
+    },
+    {
+      "from_node": "250364780",
+      "to_node": "250364784",
+      "base_weight": 71.37,
+      "street_name": "Bhagirathi Amma Street"
+    },
+    {
+      "from_node": "250364780",
+      "to_node": "250364774",
+      "base_weight": 20.19,
+      "street_name": "Thilak Street Ext"
+    },
+    {
+      "from_node": "250364780",
+      "to_node": "250364777",
+      "base_weight": 37.26,
+      "street_name": "Thilak Street Ext"
+    },
+    {
+      "from_node": "250364269",
+      "to_node": "250364273",
+      "base_weight": 62.85,
+      "street_name": "Somasundaram Road"
+    },
+    {
+      "from_node": "250364269",
+      "to_node": "250364486",
+      "base_weight": 61.37,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364269",
+      "to_node": "250364262",
+      "base_weight": 7.39,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364782",
+      "to_node": "250364947",
+      "base_weight": 83.46,
+      "street_name": "Rajan Street"
+    },
+    {
+      "from_node": "250364782",
+      "to_node": "250364946",
+      "base_weight": 105.49,
+      "street_name": "Rajan Street"
+    },
+    {
+      "from_node": "250364782",
+      "to_node": "250364258",
+      "base_weight": 132.29,
+      "street_name": "Bhagirathi Ammal Street"
+    },
+    {
+      "from_node": "250364782",
+      "to_node": "250364785",
+      "base_weight": 141.73,
+      "street_name": "Bhagirathi Ammal Street"
+    },
+    {
+      "from_node": "250364783",
+      "to_node": "250364757",
+      "base_weight": 127.13,
+      "street_name": "Bhagirathi Ammal Street"
+    },
+    {
+      "from_node": "250364783",
+      "to_node": "250364745",
+      "base_weight": 109.13,
+      "street_name": "Thirumalai Pillai Road"
+    },
+    {
+      "from_node": "2270331760",
+      "to_node": "250364206",
+      "base_weight": 52.84,
+      "street_name": ""
+    },
+    {
+      "from_node": "2270331760",
+      "to_node": "1701464406",
+      "base_weight": 119.04,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "250364273",
+      "to_node": "250364295",
+      "base_weight": 193.94,
+      "street_name": "Somasundaram Road"
+    },
+    {
+      "from_node": "250364273",
+      "to_node": "250364269",
+      "base_weight": 62.85,
+      "street_name": "Somasundaram Road"
+    },
+    {
+      "from_node": "250364273",
+      "to_node": "250364276",
+      "base_weight": 107.32,
+      "street_name": "Rama Street"
+    },
+    {
+      "from_node": "250364273",
+      "to_node": "250364504",
+      "base_weight": 65.07,
+      "street_name": "Rama Street"
+    },
+    {
+      "from_node": "250364274",
+      "to_node": "250364276",
+      "base_weight": 96.69,
+      "street_name": "Rama Street"
+    },
+    {
+      "from_node": "250364274",
+      "to_node": "250364713",
+      "base_weight": 40.2,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364274",
+      "to_node": "250364512",
+      "base_weight": 196.29,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "250364275",
+      "to_node": "250364276",
+      "base_weight": 60.64,
+      "street_name": "Raja Char Street"
+    },
+    {
+      "from_node": "250364275",
+      "to_node": "250364495",
+      "base_weight": 25.65,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364275",
+      "to_node": "250364486",
+      "base_weight": 43.19,
+      "street_name": "Raghaviah Road"
+    },
+    {
+      "from_node": "250364276",
+      "to_node": "250364274",
+      "base_weight": 96.69,
+      "street_name": "Rama Street"
+    },
+    {
+      "from_node": "250364276",
+      "to_node": "250364273",
+      "base_weight": 107.32,
+      "street_name": "Rama Street"
+    },
+    {
+      "from_node": "250364276",
+      "to_node": "250364275",
+      "base_weight": 60.64,
+      "street_name": "Raja Char Street"
+    },
+    {
+      "from_node": "250364276",
+      "to_node": "250364291",
+      "base_weight": 197.76,
+      "street_name": "Raja Char Street"
+    },
+    {
+      "from_node": "250364789",
+      "to_node": "250364785",
+      "base_weight": 92.05,
+      "street_name": "Dr Sadasivam Road"
+    },
+    {
+      "from_node": "250364789",
+      "to_node": "250364712",
+      "base_weight": 10.28,
+      "street_name": "Dr Sadasivam Road"
+    },
+    {
+      "from_node": "250364789",
+      "to_node": "6496557086",
+      "base_weight": 127.26,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "250364785",
+      "to_node": "250364715",
+      "base_weight": 97.96,
+      "street_name": "Dr Sadasivam Road"
+    },
+    {
+      "from_node": "250364785",
+      "to_node": "250364789",
+      "base_weight": 92.05,
+      "street_name": "Dr Sadasivam Road"
+    },
+    {
+      "from_node": "250364785",
+      "to_node": "250364784",
+      "base_weight": 90.78,
+      "street_name": "Bhagirathi Amma Street"
+    },
+    {
+      "from_node": "250364785",
+      "to_node": "250364782",
+      "base_weight": 141.73,
+      "street_name": "Bhagirathi Ammal Street"
+    },
+    {
+      "from_node": "250364784",
+      "to_node": "250364769",
+      "base_weight": 83.67,
+      "street_name": "Ramakanth Street"
+    },
+    {
+      "from_node": "250364784",
+      "to_node": "11064218070",
+      "base_weight": 61.34,
+      "street_name": "Ramakanth Street"
+    },
+    {
+      "from_node": "250364784",
+      "to_node": "250364785",
+      "base_weight": 90.78,
+      "street_name": "Bhagirathi Amma Street"
+    },
+    {
+      "from_node": "250364784",
+      "to_node": "250364780",
+      "base_weight": 71.37,
+      "street_name": "Bhagirathi Amma Street"
+    },
+    {
+      "from_node": "250364792",
+      "to_node": "250364258",
+      "base_weight": 80.77,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364792",
+      "to_node": "250364070",
+      "base_weight": 86.78,
+      "street_name": "Arulambal Street"
+    },
+    {
+      "from_node": "250364792",
+      "to_node": "250364794",
+      "base_weight": 136.13,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "250364792",
+      "to_node": "250364947",
+      "base_weight": 133.28,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "2001005425",
+      "to_node": "2068622282",
+      "base_weight": 85.22,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364794",
+      "to_node": "6496056616",
+      "base_weight": 4.55,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "250364794",
+      "to_node": "250364792",
+      "base_weight": 136.13,
+      "street_name": "Trimoorthy Street"
+    },
+    {
+      "from_node": "250364794",
+      "to_node": "250364783",
+      "base_weight": 82.57,
+      "street_name": "Thirumalai Pillai Road"
+    },
+    {
+      "from_node": "250364798",
+      "to_node": "12231587572",
+      "base_weight": 59.13,
+      "street_name": "Chinnaiah Street"
+    },
+    {
+      "from_node": "250364798",
+      "to_node": "250364799",
+      "base_weight": 35.6,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364798",
+      "to_node": "250364803",
+      "base_weight": 105.52,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364799",
+      "to_node": "250364798",
+      "base_weight": 35.6,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364799",
+      "to_node": "250364722",
+      "base_weight": 117.72,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "2239156096",
+      "to_node": "2239156100",
+      "base_weight": 111.88,
+      "street_name": "Anandhan Street"
+    },
+    {
+      "from_node": "250364290",
+      "to_node": "250364291",
+      "base_weight": 63.93,
+      "street_name": "Raja Char Street"
+    },
+    {
+      "from_node": "250364290",
+      "to_node": "2197415689",
+      "base_weight": 8.05,
+      "street_name": "Krishnan Street"
+    },
+    {
+      "from_node": "250364290",
+      "to_node": "2197415682",
+      "base_weight": 109.55,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "250364291",
+      "to_node": "250364290",
+      "base_weight": 63.93,
+      "street_name": "Raja Char Street"
+    },
+    {
+      "from_node": "250364291",
+      "to_node": "250364295",
+      "base_weight": 109.75,
+      "street_name": "Hanumanthan Street"
+    },
+    {
+      "from_node": "250364291",
+      "to_node": "250364512",
+      "base_weight": 93.72,
+      "street_name": "Hanumanthan Street"
+    },
+    {
+      "from_node": "250364291",
+      "to_node": "250364276",
+      "base_weight": 197.76,
+      "street_name": "Raja Char Street"
+    },
+    {
+      "from_node": "2239156100",
+      "to_node": "250364519",
+      "base_weight": 74.04,
+      "street_name": ""
+    },
+    {
+      "from_node": "2239156100",
+      "to_node": "2239156096",
+      "base_weight": 111.88,
+      "street_name": "Anandhan Street"
+    },
+    {
+      "from_node": "2239156100",
+      "to_node": "2239156101",
+      "base_weight": 23.49,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364293",
+      "to_node": "2197203134",
+      "base_weight": 63.18,
+      "street_name": "Viyasar Street"
+    },
+    {
+      "from_node": "250364293",
+      "to_node": "250364504",
+      "base_weight": 193.19,
+      "street_name": "Viyasar Street"
+    },
+    {
+      "from_node": "250364293",
+      "to_node": "250364295",
+      "base_weight": 62.79,
+      "street_name": "Hanumanthan Street"
+    },
+    {
+      "from_node": "2239156101",
+      "to_node": "11813014775",
+      "base_weight": 29.65,
+      "street_name": ""
+    },
+    {
+      "from_node": "2239156101",
+      "to_node": "11813014775",
+      "base_weight": 38.53,
+      "street_name": ""
+    },
+    {
+      "from_node": "2239156101",
+      "to_node": "2239156100",
+      "base_weight": 23.49,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364295",
+      "to_node": "2197415682",
+      "base_weight": 64.33,
+      "street_name": "Somasundaram Road"
+    },
+    {
+      "from_node": "250364295",
+      "to_node": "250364273",
+      "base_weight": 193.94,
+      "street_name": "Somasundaram Road"
+    },
+    {
+      "from_node": "250364295",
+      "to_node": "250364293",
+      "base_weight": 62.79,
+      "street_name": "Hanumanthan Street"
+    },
+    {
+      "from_node": "250364295",
+      "to_node": "250364291",
+      "base_weight": 109.75,
+      "street_name": "Hanumanthan Street"
+    },
+    {
+      "from_node": "250364803",
+      "to_node": "250364809",
+      "base_weight": 71.92,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364803",
+      "to_node": "250364798",
+      "base_weight": 105.52,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364803",
+      "to_node": "2168563660",
+      "base_weight": 79.93,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364809",
+      "to_node": "250364719",
+      "base_weight": 73.92,
+      "street_name": "Giri Road"
+    },
+    {
+      "from_node": "250364809",
+      "to_node": "250364803",
+      "base_weight": 71.92,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364809",
+      "to_node": "250364743",
+      "base_weight": 83.3,
+      "street_name": "Giri Road"
+    },
+    {
+      "from_node": "1702258054",
+      "to_node": "1702258067",
+      "base_weight": 19.99,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364815",
+      "to_node": "1702258139",
+      "base_weight": 3.87,
+      "street_name": "Valmiki Street"
+    },
+    {
+      "from_node": "250364815",
+      "to_node": "250364794",
+      "base_weight": 31.33,
+      "street_name": "Thirumalai Pillai Road"
+    },
+    {
+      "from_node": "1702258067",
+      "to_node": "11606983238",
+      "base_weight": 31.5,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "1702258067",
+      "to_node": "250364815",
+      "base_weight": 60.39,
+      "street_name": "Thirumalai Pillai Road"
+    },
+    {
+      "from_node": "250364826",
+      "to_node": "250364767",
+      "base_weight": 70.28,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "250364826",
+      "to_node": "250737705",
+      "base_weight": 103.86,
+      "street_name": "Sivasailam Street"
+    },
+    {
+      "from_node": "250364826",
+      "to_node": "250364921",
+      "base_weight": 65.92,
+      "street_name": "Sivasailam Street"
+    },
+    {
+      "from_node": "250364826",
+      "to_node": "250364863",
+      "base_weight": 149.54,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "2197215648",
+      "to_node": "250364519",
+      "base_weight": 77.35,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "245579175",
+      "to_node": "6497080775",
+      "base_weight": 14.81,
+      "street_name": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "from_node": "245579175",
+      "to_node": "250364178",
+      "base_weight": 175.94,
+      "street_name": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "from_node": "245579175",
+      "to_node": "250364066",
+      "base_weight": 85.12,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "245579177",
+      "to_node": "250364512",
+      "base_weight": 61.76,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "245579177",
+      "to_node": "2197415692",
+      "base_weight": 10.06,
+      "street_name": "Bazullah Road"
+    },
+    {
+      "from_node": "245579177",
+      "to_node": "250364290",
+      "base_weight": 93.11,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "2068622268",
+      "to_node": "2001025766",
+      "base_weight": 32.79,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "2068622268",
+      "to_node": "2197203129",
+      "base_weight": 308.96,
+      "street_name": "Govindu Street"
+    },
+    {
+      "from_node": "2001005502",
+      "to_node": "2068622282",
+      "base_weight": 210.93,
+      "street_name": "Gopalakrishnan Street"
+    },
+    {
+      "from_node": "2001005502",
+      "to_node": "12485887992",
+      "base_weight": 76.75,
+      "street_name": ""
+    },
+    {
+      "from_node": "2001005502",
+      "to_node": "2001025752",
+      "base_weight": 40.99,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364863",
+      "to_node": "250364826",
+      "base_weight": 149.54,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "2001005510",
+      "to_node": "2001025752",
+      "base_weight": 39.91,
+      "street_name": ""
+    },
+    {
+      "from_node": "6497080775",
+      "to_node": "245579175",
+      "base_weight": 14.81,
+      "street_name": "Maharajapuram Santhanam Salai"
+    },
+    {
+      "from_node": "6497080775",
+      "to_node": "12852450817",
+      "base_weight": 50.54,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "13202819016",
+      "to_node": "864565814",
+      "base_weight": 63.99,
+      "street_name": ""
+    },
+    {
+      "from_node": "13202819016",
+      "to_node": "13202819017",
+      "base_weight": 3.96,
+      "street_name": ""
+    },
+    {
+      "from_node": "2068622282",
+      "to_node": "2001005502",
+      "base_weight": 210.93,
+      "street_name": "Gopalakrishnan Street"
+    },
+    {
+      "from_node": "2068622282",
+      "to_node": "2001037450",
+      "base_weight": 23.68,
+      "street_name": "Gopalakrishnan Street"
+    },
+    {
+      "from_node": "2068622282",
+      "to_node": "2001005425",
+      "base_weight": 85.22,
+      "street_name": ""
+    },
+    {
+      "from_node": "2068622283",
+      "to_node": "12485887992",
+      "base_weight": 5.92,
+      "street_name": ""
+    },
+    {
+      "from_node": "2168563660",
+      "to_node": "250364803",
+      "base_weight": 79.93,
+      "street_name": ""
+    },
+    {
+      "from_node": "13202819017",
+      "to_node": "13202819016",
+      "base_weight": 3.96,
+      "street_name": ""
+    },
+    {
+      "from_node": "13284331478",
+      "to_node": "13284331484",
+      "base_weight": 174.44,
+      "street_name": "North Usman Road Flyover"
+    },
+    {
+      "from_node": "13233952215",
+      "to_node": "2197415682",
+      "base_weight": 6.81,
+      "street_name": "Somasundaram Road"
+    },
+    {
+      "from_node": "13233952215",
+      "to_node": "2197415684",
+      "base_weight": 42.48,
+      "street_name": "North Usman Road"
+    },
+    {
+      "from_node": "11064218070",
+      "to_node": "250364784",
+      "base_weight": 61.34,
+      "street_name": "Ramakanth Street"
+    },
+    {
+      "from_node": "11064218070",
+      "to_node": "250364763",
+      "base_weight": 51.5,
+      "street_name": "Ramakanth Street"
+    },
+    {
+      "from_node": "11064218070",
+      "to_node": "11064218071",
+      "base_weight": 37.55,
+      "street_name": ""
+    },
+    {
+      "from_node": "11064218071",
+      "to_node": "11064218070",
+      "base_weight": 37.55,
+      "street_name": ""
+    },
+    {
+      "from_node": "1702258139",
+      "to_node": "250364815",
+      "base_weight": 3.87,
+      "street_name": "Valmiki Street"
+    },
+    {
+      "from_node": "1702258139",
+      "to_node": "1702258054",
+      "base_weight": 44.19,
+      "street_name": "Thirumalai Road"
+    },
+    {
+      "from_node": "1702258139",
+      "to_node": "1701464416",
+      "base_weight": 232.29,
+      "street_name": "Valmiki Street"
+    },
+    {
+      "from_node": "13284331484",
+      "to_node": "13284331478",
+      "base_weight": 174.44,
+      "street_name": "North Usman Road Flyover"
+    },
+    {
+      "from_node": "13284331484",
+      "to_node": "11951492660",
+      "base_weight": 655.24,
+      "street_name": "North Usman Road Flyover"
+    },
+    {
+      "from_node": "6496530402",
+      "to_node": "250364722",
+      "base_weight": 11.37,
+      "street_name": ""
+    },
+    {
+      "from_node": "6496530402",
+      "to_node": "1701428465",
+      "base_weight": 60.86,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "9189087206",
+      "to_node": "2197415684",
+      "base_weight": 113.98,
+      "street_name": "Krishna Swamy Street"
+    },
+    {
+      "from_node": "12442825702",
+      "to_node": "250364758",
+      "base_weight": 99.42,
+      "street_name": "Sarangapani Street"
+    },
+    {
+      "from_node": "12442825702",
+      "to_node": "12442825703",
+      "base_weight": 37.02,
+      "street_name": ""
+    },
+    {
+      "from_node": "12442825702",
+      "to_node": "250364946",
+      "base_weight": 41.1,
+      "street_name": "Sarangapani Street"
+    },
+    {
+      "from_node": "1702257640",
+      "to_node": "308209327",
+      "base_weight": 22.04,
+      "street_name": ""
+    },
+    {
+      "from_node": "1702257640",
+      "to_node": "1702257683",
+      "base_weight": 30.0,
+      "street_name": ""
+    },
+    {
+      "from_node": "12442825703",
+      "to_node": "12442825702",
+      "base_weight": 37.02,
+      "street_name": ""
+    },
+    {
+      "from_node": "9189087211",
+      "to_node": "9189087213",
+      "base_weight": 54.61,
+      "street_name": ""
+    },
+    {
+      "from_node": "9189087213",
+      "to_node": "250364769",
+      "base_weight": 56.05,
+      "street_name": "Bharathy Nagar 1st Street"
+    },
+    {
+      "from_node": "9189087213",
+      "to_node": "250737703",
+      "base_weight": 19.54,
+      "street_name": "Bharathy Nagar 1st Street"
+    },
+    {
+      "from_node": "9189087213",
+      "to_node": "9189087211",
+      "base_weight": 54.61,
+      "street_name": ""
+    },
+    {
+      "from_node": "247681522",
+      "to_node": "250364747",
+      "base_weight": 112.06,
+      "street_name": "Habibullah Road"
+    },
+    {
+      "from_node": "1702257652",
+      "to_node": "308209330",
+      "base_weight": 19.11,
+      "street_name": "Gopathi Narayanaswami Road"
+    },
+    {
+      "from_node": "12485887992",
+      "to_node": "2001005502",
+      "base_weight": 76.75,
+      "street_name": ""
+    },
+    {
+      "from_node": "12485887992",
+      "to_node": "12485920409",
+      "base_weight": 7.91,
+      "street_name": ""
+    },
+    {
+      "from_node": "1702257658",
+      "to_node": "1702257674",
+      "base_weight": 19.07,
+      "street_name": ""
+    },
+    {
+      "from_node": "1702257658",
+      "to_node": "308209330",
+      "base_weight": 23.23,
+      "street_name": "Thirumalai Road"
+    },
+    {
+      "from_node": "12485887995",
+      "to_node": "12485887993",
+      "base_weight": 5.4,
+      "street_name": ""
+    },
+    {
+      "from_node": "250364921",
+      "to_node": "250364826",
+      "base_weight": 65.92,
+      "street_name": "Sivasailam Street"
+    }
+  ]
+}

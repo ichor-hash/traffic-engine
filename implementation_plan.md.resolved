@@ -1,0 +1,119 @@
+# Transform Traffic Engine → Ambulance Dispatch System
+
+Convert the existing traffic simulation into a full ambulance dispatch system with real-map rendering, dispatch algorithms, and interactive emergency features.
+
+## Proposed Changes
+
+### Backend: Dispatch Module
+
+#### [NEW] [models.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/models.py)
+
+Data models for the dispatch system:
+- `Ambulance` — id, name, location (node ID), status (available/dispatched/returning)  
+- `Hospital` — id, name, location, capacity, current_load
+- `Emergency` — id, location, severity (1–5), timestamp
+- `DispatchResult` — assigned ambulance, hospital, algorithm used, response time, path
+
+#### [NEW] [greedy.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/greedy.py)
+
+**Greedy (Naive) dispatch**: assigns the nearest available ambulance by Dijkstra distance. Sends patient to nearest hospital. Simple O(A × Dijkstra) where A = ambulance count.
+
+#### [NEW] [hungarian.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/hungarian.py)
+
+**Hungarian Algorithm**: optimal assignment when multiple emergencies are pending. Builds a cost matrix (ambulances × emergencies) using Dijkstra distances, solves the assignment problem in O(n³). Also factors in hospital capacity + traffic congestion for multi-objective scoring.
+
+#### [NEW] [dispatch_service.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/dispatch_service.py)
+
+Central orchestrator:
+- Manages ambulance fleet + hospital registry
+- Maintains emergency queue
+- `dispatch_greedy()` — single emergency assignment
+- `dispatch_hungarian()` — batch optimal assignment
+- `generate_emergency()` — random emergency at a graph node
+- `compare_methods()` — runs both and returns side-by-side results
+- Auto-generates emergencies during simulation ticks
+
+#### [MODIFY] [routes.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/api/routes.py)
+
+New endpoints:
+- `GET /dispatch/state` — ambulances, hospitals, pending emergencies
+- `POST /dispatch/emergency` — trigger a random emergency
+- `POST /dispatch/assign` — assign using specified algorithm
+- `POST /dispatch/compare` — compare greedy vs hungarian
+- `POST /dispatch/reset` — reset ambulance positions
+- WebSocket: push `emergency_new`, `dispatch_assigned` events
+
+---
+
+### Frontend: Leaflet + OpenStreetMap Map
+
+#### Install packages
+```bash
+npm install leaflet react-leaflet @types/leaflet
+```
+
+#### [NEW] [LeafletMap.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/LeafletMap.tsx)
+
+Replaces [GraphCanvas.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/GraphCanvas.tsx):
+- `<MapContainer>` centered on T. Nagar, Chennai (13.045, 80.235)
+- OpenStreetMap tile layer (free, no API key)
+- Road edges as `<Polyline>` colored by traffic status (green/amber/red)
+- Node intersections as small `<CircleMarker>`
+- Ambulance markers (🚑 icon, blue when available, orange when dispatched)
+- Hospital markers (🏥 icon)
+- Emergency markers (❗ pulsing red icon)
+- Animated path polyline for dispatch routes
+
+#### [MODIFY] [App.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/App.tsx)
+
+- Swap `<GraphCanvas>` → `<LeafletMap>`
+- Add dispatch state management (ambulances, hospitals, emergencies)
+- Add dispatch API calls
+- Rebrand header: "Ambulance Dispatch System"
+
+#### [NEW] [DispatchPanel.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/DispatchPanel.tsx)
+
+Sidebar panel for dispatch controls:
+- "Generate Emergency" button
+- Algorithm selector (Greedy / Hungarian)
+- "Dispatch" button
+- "Compare Methods" button
+- Fleet status table (ambulance list with status)
+- Hospital capacity bars
+
+#### [MODIFY] [MetricsPanel.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/MetricsPanel.tsx)
+
+Add dispatch comparison view: side-by-side Greedy vs Hungarian results showing response time, path cost, and hospital load balance.
+
+#### [MODIFY] [types.ts](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/types.ts)
+
+New types: `Ambulance`, `Hospital`, `Emergency`, `DispatchResult`, `DispatchState`, `DispatchComparison`.
+
+#### [MODIFY] [api.ts](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/api.ts)
+
+New API functions: `fetchDispatchState`, `triggerEmergency`, `dispatchAssign`, `dispatchCompare`, `resetDispatch`.
+
+#### [MODIFY] [index.css](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/index.css)
+
+Add styles for Leaflet map container, ambulance/hospital/emergency markers, dispatch panel, fleet status, and comparison table. Emergency-themed color scheme (red accents, urgency aesthetics).
+
+---
+
+### Vite Config Update
+
+#### [MODIFY] [vite.config.ts](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/vite.config.ts)
+
+Add proxy entries for `/dispatch/*` routes to backend.
+
+## Verification Plan
+
+### Automated Tests
+- `pytest tests/ -v` — existing tests still pass
+- Backend dispatch endpoint smoke tests via curl/PowerShell
+
+### Manual Verification
+- Open `http://localhost:5173` — verify Leaflet map renders T. Nagar streets
+- Click "Generate Emergency" — red marker appears
+- Click "Dispatch (Greedy)" — ambulance assigned, path animated
+- Click "Compare" — see Greedy vs Hungarian side-by-side
+- Start simulation — traffic changes, dispatches adapt
