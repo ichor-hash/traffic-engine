@@ -138,9 +138,19 @@ class TrafficEngine:
         changes: list[dict] = []
         all_edges = self._graph.get_all_edges()
 
+        # --- Predictive Traffic Modeling ---
+        # Identify "hot" nodes: intersections connected to congested or blocked roads.
+        # Traffic waves will naturally propagate outwards from these hot nodes.
+        hot_nodes = set()
+        for edge in all_edges:
+            if edge.status in (EdgeStatus.CONGESTED, EdgeStatus.BLOCKED):
+                hot_nodes.add(edge.from_node)
+                hot_nodes.add(edge.to_node)
+
         with self._lock:
             for edge in all_edges:
-                change = self._process_edge(edge)
+                is_hot = (edge.from_node in hot_nodes) or (edge.to_node in hot_nodes)
+                change = self._process_edge(edge, is_hot)
                 if change is not None:
                     changes.append(change)
 
@@ -159,7 +169,7 @@ class TrafficEngine:
             self.tick()
             time.sleep(self._config.tick_interval)
 
-    def _process_edge(self, edge: Edge) -> dict | None:
+    def _process_edge(self, edge: Edge, is_hot: bool) -> dict | None:
         """
         Apply traffic logic to a single edge.
 
@@ -186,11 +196,17 @@ class TrafficEngine:
                 return None  # still blocked, no change
 
         elif edge.status == EdgeStatus.NORMAL:
-            if roll < cfg.accident_prob:
+            # Traffic Wave Simulation:
+            # If this road connects to a congested intersection, vastly increase the chance
+            # of the backlog spilling over into this road.
+            acc_prob = cfg.accident_prob * (5.0 if is_hot else 1.0)
+            cong_prob = cfg.congestion_prob * (3.0 if is_hot else 1.0)
+
+            if roll < acc_prob:
                 # Accident → blocked
                 edge.current_weight = float("inf")
                 edge.status = EdgeStatus.BLOCKED
-            elif roll < cfg.accident_prob + cfg.congestion_prob:
+            elif roll < acc_prob + cong_prob:
                 # Congestion → weight multiplied
                 mult = random.uniform(cfg.min_congestion_mult, cfg.max_congestion_mult)
                 edge.current_weight = edge.base_weight * mult

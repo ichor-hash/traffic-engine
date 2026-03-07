@@ -121,7 +121,8 @@ export default function LeafletMap({
 
         for (const h of hospitals) {
             const n = nodeMap[h.location]; if (!n) continue;
-            L.marker([n.y, n.x], { icon: svgIcon(SVG.building, "hospital") })
+            const stateCls = h.congestion > 0.8 ? "critical" : h.congestion > 0.5 ? "warning" : "safe";
+            L.marker([n.y, n.x], { icon: svgIcon(SVG.building, `hospital ${stateCls}`) })
                 .bindTooltip(`<strong>${h.name}</strong><br/>${h.current_load}/${h.capacity} beds`, { direction: "top", offset: [0, -16], className: "node-tip" })
                 .addTo(markerLayer.current);
         }
@@ -139,7 +140,10 @@ export default function LeafletMap({
         for (const e of emergencies) {
             if (e.assigned) continue;
             const n = nodeMap[e.location]; if (!n) continue;
-            const cls = selectedEmergency === e.id ? "emergency selected-emg" : "emergency";
+            let sevCls = "";
+            if (e.severity >= 5) sevCls = "sev-critical";
+            else if (e.severity >= 4) sevCls = "sev-high";
+            const cls = selectedEmergency === e.id ? "emergency selected-emg" : `emergency ${sevCls}`;
             L.marker([n.y, n.x], { icon: svgIcon(SVG.alert, cls) })
                 .bindTooltip(`<strong>Emergency #${e.id}</strong><br/>Severity: ${e.severity}`, { direction: "top", offset: [0, -16], className: "node-tip" })
                 .on("click", () => onEmergencyClick(e.id))
@@ -186,6 +190,17 @@ export default function LeafletMap({
         if (trailCoords.length > 1) {
             const color = animating.phase === "to_emergency" ? "#0a84ff" : "#ff453a";
             L.polyline(trailCoords, { color, weight: 5, opacity: 1 }).addTo(animLayer.current);
+        }
+
+        // Draw planned route ahead of the ambulance
+        const plannedCoords: L.LatLngExpression[] = animating.path
+            .slice(animating.currentIdx)
+            .map(id => nodeMap[id]).filter(Boolean)
+            .map(n => [n!.y, n!.x] as L.LatLngExpression);
+
+        if (plannedCoords.length > 1) {
+            const plannedColor = animating.phase === "to_emergency" ? "#0a84ff" : "#ff453a";
+            L.polyline(plannedCoords, { color: plannedColor, weight: 3, opacity: 0.4, dashArray: "4, 6" }).addTo(animLayer.current);
         }
     }, [animating, nodeMap]);
 

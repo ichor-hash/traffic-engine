@@ -783,6 +783,20 @@ body {
   height: 26px;
   background: var(--m3-primary);
   color: #fff;
+  transition: background-color 0.5s ease;
+}
+
+.map-marker.hospital.safe {
+  background: var(--m3-success);
+}
+
+.map-marker.hospital.warning {
+  background: var(--m3-warning);
+}
+
+.map-marker.hospital.critical {
+  background: var(--m3-error);
+  animation: dispPulse 1.0s ease-in-out infinite;
 }
 
 .map-marker.emergency {
@@ -793,10 +807,44 @@ body {
   animation: emgPulse 1.2s ease-in-out infinite;
 }
 
+.map-marker.emergency.sev-high {
+  animation: emgPulseFast 0.8s ease-in-out infinite;
+  box-shadow: 0 0 0 5px rgba(255, 69, 58, 0.4);
+}
+
+.map-marker.emergency.sev-critical {
+  animation: emgPulseRapid 0.4s ease-in-out infinite;
+  box-shadow: 0 0 0 8px rgba(255, 69, 58, 0.6);
+}
+
 .map-marker.emergency.selected-emg {
   background: var(--m3-primary);
   animation: none;
   box-shadow: 0 0 0 4px rgba(10, 132, 255, .3);
+}
+
+@keyframes emgPulseFast {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes emgPulseRapid {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
 }
 
 .map-marker svg {

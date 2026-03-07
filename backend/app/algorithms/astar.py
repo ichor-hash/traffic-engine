@@ -32,15 +32,28 @@ if TYPE_CHECKING:
     from app.graph.models import Node
 
 
-def _euclidean(a: "Node", b: "Node") -> float:
+def _haversine(a: "Node", b: "Node") -> float:
     """
-    Compute Euclidean distance between two nodes.
+    Compute Haversine (Great-Circle) distance between two lat/lon points in meters.
+    
+    Used as the admissible heuristic h(n) for A*. Because our edge weights
+    are in meters, returning proper meters instead of Euclidean degrees
+    makes A* orders of magnitude faster while remaining optimal.
 
-    Used as the admissible heuristic h(n) for A*.
-
-    Time complexity: O(1).
+    a.x = lon, a.y = lat
+    b.x = lon, b.y = lat
     """
-    return math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
+    R = 6371000.0  # Earth radius in meters
+    
+    lat1_rad = math.radians(a.y)
+    lat2_rad = math.radians(b.y)
+    dlat = math.radians(b.y - a.y)
+    dlon = math.radians(b.x - a.x)
+
+    a_val = (math.sin(dlat / 2) ** 2) + math.cos(lat1_rad) * math.cos(lat2_rad) * (math.sin(dlon / 2) ** 2)
+    c_val = 2 * math.atan2(math.sqrt(a_val), math.sqrt(1 - a_val))
+
+    return R * c_val
 
 
 def astar(graph: "Graph", source: str, destination: str) -> PathResult:
@@ -83,7 +96,7 @@ def astar(graph: "Graph", source: str, destination: str) -> PathResult:
     # Compute initial heuristic
     source_node = graph.get_node(source)
     assert source_node is not None
-    h_start = _euclidean(source_node, goal_node)
+    h_start = _haversine(source_node, goal_node)
 
     # Min-heap entries: (f_score, node_id)
     # f(n) = g(n) + h(n)
@@ -125,7 +138,7 @@ def astar(graph: "Graph", source: str, destination: str) -> PathResult:
                 # Compute f(v) = g(v) + h(v)
                 v_node = graph.get_node(v)
                 assert v_node is not None
-                h_v = _euclidean(v_node, goal_node)
+                h_v = _haversine(v_node, goal_node)
                 f_v = tentative_g + h_v
 
                 heapq.heappush(heap, (f_v, v))
