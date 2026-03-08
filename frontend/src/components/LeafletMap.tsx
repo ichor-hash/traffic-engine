@@ -1,6 +1,6 @@
 /* ── LeafletMap — Material 3 map with animated ambulance movement ── */
 
-import { useEffect, useRef, useMemo, useCallback } from "react";
+import { useEffect, useRef, useMemo, useCallback, memo } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { GraphNode, GraphEdge, Ambulance, Hospital, Emergency, DispatchResult } from "../types";
@@ -53,7 +53,7 @@ function edgeStyle(status: string) {
     return { color: "#48484a", weight: 1.2, opacity: 0.35 };
 }
 
-export default function LeafletMap({
+function LeafletMap({
     nodes, edges, ambulances, hospitals, emergencies,
     selectedEmergency, dispatchResult, animating,
     onNodeClick, onEmergencyClick,
@@ -66,6 +66,10 @@ export default function LeafletMap({
     const pathLayer = useRef(L.layerGroup());
     const animLayer = useRef(L.layerGroup());
     const boundsLayer = useRef(L.layerGroup());
+    const edgeObjects = useRef<Record<string, L.Polyline>>({});
+    const hospitalMarkers = useRef<Record<string, L.Marker>>({});
+    const ambulanceMarkers = useRef<Record<string, L.Marker>>({});
+    const emergencyMarkers = useRef<Record<string, L.Marker>>({});
 
     const nodeMap = useMemo(() => {
         const m: Record<string, GraphNode> = {};
@@ -76,7 +80,7 @@ export default function LeafletMap({
     /* ── Init map ── */
     useEffect(() => {
         if (!containerRef.current || mapRef.current) return;
-        const map = L.map(containerRef.current, { center: CENTER, zoom: ZOOM, zoomControl: true });
+        const map = L.map(containerRef.current, { center: CENTER, zoom: ZOOM, zoomControl: true, preferCanvas: true });
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
             maxZoom: 19,
@@ -107,18 +111,36 @@ export default function LeafletMap({
         }
 
         const bounds: L.LatLngBoundsLiteral = [[minLat, minLng], [maxLat, maxLng]];
-        L.rectangle(bounds, { color: "#0a84ff", weight: 3, fillOpacity: 0.05, dashArray: "10, 10", opacity: 0.8 })
+        L.rectangle(bounds, { color: "#0a84ff", weight: 3, fillOpacity: 0, dashArray: "10, 10", opacity: 0.8 })
             .bindTooltip("Simulation Area Boundary", { direction: "top", sticky: true, className: "node-tip" })
             .addTo(boundsLayer.current);
     }, [nodes]);
 
-    /* ── Edges ── */
+    /* ── Edges (Persistent Optimization) ── */
     useEffect(() => {
-        edgeLayer.current.clearLayers();
+        if (!mapRef.current) return;
+
+        // We only clear if edges array is empty (reset)
+        if (edges.length === 0) {
+            edgeLayer.current.clearLayers();
+            edgeObjects.current = {};
+            return;
+        }
+
         for (const e of edges) {
-            const f = nodeMap[e.from_node], t = nodeMap[e.to_node];
-            if (!f || !t) continue;
-            L.polyline([[f.y, f.x], [t.y, t.x]], edgeStyle(e.status)).addTo(edgeLayer.current);
+            const key = `${e.from_node}-${e.to_node}`;
+            const poly = edgeObjects.current[key];
+
+            if (!poly) {
+                const f = nodeMap[e.from_node], t = nodeMap[e.to_node];
+                if (!f || !t) continue;
+                const newPoly = L.polyline([[f.y, f.x], [t.y, t.x]], edgeStyle(e.status));
+                newPoly.addTo(edgeLayer.current);
+                edgeObjects.current[key] = newPoly;
+            } else {
+                // Light-weight style update instead of full re-creation
+                poly.setStyle(edgeStyle(e.status));
+            }
         }
     }, [edges, nodeMap]);
 
@@ -136,27 +158,83 @@ export default function LeafletMap({
         }
     }, [nodes, onNodeClick]);
 
-    /* ── Static markers ── */
+    /* ── Hospitals persist ── */
     useEffect(() => {
-        markerLayer.current.clearLayers();
+        if (!mapRef.current) return;
+        const currentIds = new Set(hospitals.map(h => h.name));
+
+        // Remove old
+        Object.keys(hospitalMarkers.current).forEach(id => {
+            if (!currentIds.has(id)) {
+                hospitalMarkers.current[id].remove();
+                delete hospitalMarkers.current[id];
+            }
+        });
 
         for (const h of hospitals) {
             const n = nodeMap[h.location]; if (!n) continue;
             const stateCls = h.congestion > 0.8 ? "critical" : h.congestion > 0.5 ? "warning" : "safe";
-            L.marker([n.y, n.x], { icon: svgIcon(SVG.building, `hospital ${stateCls}`) })
-                .bindTooltip(`<strong>${h.name}</strong><br/>${h.current_load}/${h.capacity} beds`, { direction: "top", offset: [0, -16], className: "node-tip" })
-                .addTo(markerLayer.current);
+            const icon = svgIcon(SVG.building, `hospital ${stateCls}`);
+
+            if (!hospitalMarkers.current[h.name]) {
+                const m = L.marker([n.y, n.x], { icon }).addTo(markerLayer.current);
+                m.bindTooltip(`<strong>${h.name}</strong><br/>${h.current_load}/${h.capacity} beds`, { direction: "top", offset: [0, -16], className: "node-tip" });
+                hospitalMarkers.current[h.name] = m;
+            } else {
+                hospitalMarkers.current[h.name].setIcon(icon);
+                hospitalMarkers.current[h.name].setTooltipContent(`<strong>${h.name}</strong><br/>${h.current_load}/${h.capacity} beds`);
+            }
         }
+    }, [hospitals, nodeMap]);
+
+    /* ── Ambulances persist ── */
+    useEffect(() => {
+        if (!mapRef.current) return;
+        const currentIds = new Set(ambulances.map(a => a.id));
+
+        Object.keys(ambulanceMarkers.current).forEach(id => {
+            if (!currentIds.has(id)) {
+                ambulanceMarkers.current[id].remove();
+                delete ambulanceMarkers.current[id];
+            }
+        });
 
         for (const a of ambulances) {
-            // Skip if currently animating this ambulance
-            if (animating && animating.id === a.id) continue;
+            if (animating && animating.id === a.id) {
+                if (ambulanceMarkers.current[a.id]) {
+                    ambulanceMarkers.current[a.id].remove();
+                    delete ambulanceMarkers.current[a.id];
+                }
+                continue;
+            }
+
             const n = nodeMap[a.location]; if (!n) continue;
             const cls = a.status === "dispatched" ? "ambulance dispatched" : "ambulance";
-            L.marker([n.y, n.x], { icon: svgIcon(SVG.truck, cls) })
-                .bindTooltip(`<strong>${a.name}</strong><br/>${a.status}`, { direction: "top", offset: [0, -16], className: "node-tip" })
-                .addTo(markerLayer.current);
+            const icon = svgIcon(SVG.truck, cls);
+
+            if (!ambulanceMarkers.current[a.id]) {
+                const m = L.marker([n.y, n.x], { icon }).addTo(markerLayer.current);
+                m.bindTooltip(`<strong>${a.name}</strong><br/>${a.status}`, { direction: "top", offset: [0, -16], className: "node-tip" });
+                ambulanceMarkers.current[a.id] = m;
+            } else {
+                ambulanceMarkers.current[a.id].setLatLng([n.y, n.x]);
+                ambulanceMarkers.current[a.id].setIcon(icon);
+                ambulanceMarkers.current[a.id].setTooltipContent(`<strong>${a.name}</strong><br/>${a.status}`);
+            }
         }
+    }, [ambulances, animating, nodeMap]);
+
+    /* ── Emergencies persist ── */
+    useEffect(() => {
+        if (!mapRef.current) return;
+        const currentIds = new Set(emergencies.filter(e => !e.assigned).map(e => e.id));
+
+        Object.keys(emergencyMarkers.current).forEach(id => {
+            if (!currentIds.has(id)) {
+                emergencyMarkers.current[id].remove();
+                delete emergencyMarkers.current[id];
+            }
+        });
 
         for (const e of emergencies) {
             if (e.assigned) continue;
@@ -165,12 +243,19 @@ export default function LeafletMap({
             if (e.severity >= 5) sevCls = "sev-critical";
             else if (e.severity >= 4) sevCls = "sev-high";
             const cls = selectedEmergency === e.id ? "emergency selected-emg" : `emergency ${sevCls}`;
-            L.marker([n.y, n.x], { icon: svgIcon(SVG.alert, cls) })
-                .bindTooltip(`<strong>Emergency #${e.id}</strong><br/>Severity: ${e.severity}`, { direction: "top", offset: [0, -16], className: "node-tip" })
-                .on("click", () => onEmergencyClick(e.id))
-                .addTo(markerLayer.current);
+            const icon = svgIcon(SVG.alert, cls);
+
+            if (!emergencyMarkers.current[e.id]) {
+                const m = L.marker([n.y, n.x], { icon }).addTo(markerLayer.current);
+                m.bindTooltip(`<strong>Emergency #${e.id}</strong><br/>Severity: ${e.severity}`, { direction: "top", offset: [0, -16], className: "node-tip" });
+                m.on("click", () => onEmergencyClick(e.id));
+                emergencyMarkers.current[e.id] = m;
+            } else {
+                emergencyMarkers.current[e.id].setIcon(icon);
+                if (selectedEmergency === e.id) emergencyMarkers.current[e.id].setZIndexOffset(1000);
+            }
         }
-    }, [ambulances, hospitals, emergencies, selectedEmergency, nodeMap, onEmergencyClick, animating]);
+    }, [emergencies, selectedEmergency, nodeMap, onEmergencyClick]);
 
     /* ── Dispatch paths ── */
     useEffect(() => {
@@ -227,3 +312,5 @@ export default function LeafletMap({
 
     return <div ref={containerRef} id="leaflet-map" />;
 }
+
+export default memo(LeafletMap);

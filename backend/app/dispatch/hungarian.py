@@ -147,7 +147,7 @@ def hungarian_dispatch(
     Returns:
         List of DispatchResult for each assigned emergency.
     """
-    available = [a for a in ambulances if a.status == AmbulanceStatus.AVAILABLE]
+    available = [a for a in ambulances if a.status in (AmbulanceStatus.AVAILABLE, AmbulanceStatus.RETURNING)]
     pending = [e for e in emergencies if not e.assigned]
 
     if not available or not pending:

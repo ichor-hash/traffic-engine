@@ -11,22 +11,25 @@ interface Props {
 }
 
 export default function AnalyticsDashboard({ history, onClose }: Props) {
-    // Format data for Recharts
-    const data = history.map((res, i) => ({
+    const data = React.useMemo(() => history.map((res, i) => ({
         name: `#${res.emergency_id.substring(0, 4)}`,
         Response: parseFloat(res.response_time.toFixed(1)),
         Transport: parseFloat(res.transport_time.toFixed(1)),
         Total: parseFloat(res.total_time.toFixed(1)),
         Algorithm: res.algorithm,
-    }));
+    })), [history]);
 
-    const avgTotal = data.length > 0
-        ? (data.reduce((sum, d) => sum + d.Total, 0) / data.length).toFixed(1)
-        : "0.0";
+    const stats = React.useMemo(() => {
+        if (data.length === 0) return { avgTotal: "0.0", avgResponse: "0.0" };
+        const total = data.reduce((sum, d) => sum + d.Total, 0) / data.length;
+        const resp = data.reduce((sum, d) => sum + d.Response, 0) / data.length;
+        return {
+            avgTotal: total.toFixed(1),
+            avgResponse: resp.toFixed(1),
+        };
+    }, [data]);
 
-    const avgResponse = data.length > 0
-        ? (data.reduce((sum, d) => sum + d.Response, 0) / data.length).toFixed(1)
-        : "0.0";
+    const { avgTotal, avgResponse } = stats;
 
     return (
         <div className="modal-overlay">

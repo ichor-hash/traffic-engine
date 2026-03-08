@@ -305,6 +305,7 @@ def create_router(
         """Reset all dispatch state and traffic conditions."""
         try:
             dispatch.reset()
+            engine.stop()
             engine.reset_traffic()
             return {"status": "reset"}
         except Exception as e:

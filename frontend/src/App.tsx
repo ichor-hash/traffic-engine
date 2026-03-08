@@ -1,6 +1,6 @@
 /* ── App — Ambulance Dispatch System (Material 3 + Animation) ── */
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import { Siren, Trophy } from "lucide-react";
 import type {
     GraphNode, GraphEdge,
@@ -53,6 +53,12 @@ export default function App() {
         const m: Record<string, GraphNode> = {};
         for (const n of nodes) m[n.id] = n;
         nodeMapRef.current = m;
+    }, [nodes]);
+
+    const nodeLabelMap = useMemo(() => {
+        const m: Record<string, string> = {};
+        for (const n of nodes) m[n.id] = n.label || n.id;
+        return m;
     }, [nodes]);
 
     /* ── Load ── */
@@ -223,32 +229,40 @@ export default function App() {
 
     const handleGenerateEmergency = useCallback(async () => {
         try {
-            await triggerEmergency();
-            await refreshDispatchState();
+            const newEmg = await triggerEmergency();
+            setEmergencies(prev => [...prev, newEmg]);
+            // No need for refreshDispatchState() here as WebSocket will also hit, 
+            // but local update makes it feel instant.
         } catch (err: any) {
             addToast({ type: "error", title: "Failed", description: err.message || "Could not generate emergency", duration: 5000 });
         }
-    }, [refreshDispatchState, addToast]);
+    }, [addToast]);
 
     const handleDispatch = useCallback(async (algorithm: string) => {
         try {
             const res = await dispatchAssign(algorithm, selectedEmergency ?? undefined);
             if (res.assignments && res.assignments.length > 0) {
                 const r = res.assignments[0];
+
+                // Update local state immediately
+                setEmergencies(prev => prev.map(e => e.id === r.emergency_id ? { ...e, assigned: true } : e));
+                setAmbulances(prev => prev.map(a => a.id === r.ambulance_id ? { ...a, status: "dispatched" as const } : a));
+
                 addToast({
                     type: "success",
                     title: "Ambulance Dispatched",
-                    description: `${r.ambulance_id} responding to #${r.emergency_id} (${r.algorithm})`,
+                    description: `${r.ambulance_id} responding to ${r.algorithm}`, // Simplified toast
                     duration: 8000,
                 });
                 setSelectedEmergency(null);
                 startAnimation(r);
-                await refreshDispatchState();
+                // Background refresh for safety, but UI is already updated
+                refreshDispatchState();
             }
         } catch (err: any) {
             addToast({ type: "error", title: "Dispatch Error", description: err.message || "Dispatch failed", duration: 5000 });
         }
-    }, [selectedEmergency, refreshDispatchState, addToast, startAnimation]);
+    }, [selectedEmergency, startAnimation, refreshDispatchState, addToast]);
 
     const handleCompare = useCallback(async () => {
         try {
@@ -271,6 +285,7 @@ export default function App() {
             setDispatches(0);
             setDispatchHistory([]);
             await resetDispatch();
+            setSimRunning(false);
             await refreshDispatchState();
             addToast({ type: "info", title: "System Reset", duration: 3000 });
         } catch (err: any) {
@@ -338,32 +353,6 @@ export default function App() {
                 />
             )}
 
-            <header className="app-header">
-                <div className="brand">
-                    <Siren size={20} />
-                    <h1>Ambulance Dispatch</h1>
-                    <span className="brand-sub">T. Nagar, Chennai</span>
-                </div>
-                <div className="header-right">
-                    <div className="score-chip">
-                        <Trophy size={14} />
-                        <span>{score} pts</span>
-                        <span className="score-sep">|</span>
-                        <span>{dispatches} dispatched</span>
-                    </div>
-                    {simRunning && (
-                        <div className="score-chip" style={{ marginLeft: 8, marginRight: 8, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                            <span style={{ color: "var(--m3-primary)" }}>{timeOfDay === "Morning Rush" || timeOfDay === "Evening Rush" ? "🚗" : "🟢"}</span>
-                            <span>{timeOfDay}</span>
-                        </div>
-                    )}
-                    <div className={`status-chip ${simRunning ? "live" : ""}`}>
-                        {simRunning && <span className="status-dot" />}
-                        {simRunning ? "Traffic Live" : "Traffic Paused"}
-                    </div>
-                </div>
-            </header>
-
             <main className="main-layout">
                 <aside className="sidebar">
                     <DispatchPanel
@@ -386,6 +375,54 @@ export default function App() {
                         onSelectEmergency={setSelectedEmergency}
                         onSpeedChange={handleSpeedChange}
                         onShowAnalytics={() => setShowAnalytics(true)}
+                        variant="fleet"
+                        nodeLabelMap={nodeLabelMap}
+                    />
+                    <DispatchPanel
+                        ambulances={ambulances}
+                        hospitals={hospitals}
+                        emergencies={emergencies}
+                        nodes={nodes}
+                        comparison={comparison}
+                        lastResult={lastResult}
+                        selectedEmergency={selectedEmergency}
+                        simRunning={simRunning}
+                        simSpeed={simSpeed}
+                        isAnimating={!!animating}
+                        animatingState={animating}
+                        onGenerateEmergency={handleGenerateEmergency}
+                        onDispatch={handleDispatch}
+                        onCompare={handleCompare}
+                        onReset={handleReset}
+                        onToggleSim={handleToggleSim}
+                        onSelectEmergency={setSelectedEmergency}
+                        onSpeedChange={handleSpeedChange}
+                        onShowAnalytics={() => setShowAnalytics(true)}
+                        variant="hospitals"
+                        nodeLabelMap={nodeLabelMap}
+                    />
+                    <DispatchPanel
+                        ambulances={ambulances}
+                        hospitals={hospitals}
+                        emergencies={emergencies}
+                        nodes={nodes}
+                        comparison={comparison}
+                        lastResult={lastResult}
+                        selectedEmergency={selectedEmergency}
+                        simRunning={simRunning}
+                        simSpeed={simSpeed}
+                        isAnimating={!!animating}
+                        animatingState={animating}
+                        onGenerateEmergency={handleGenerateEmergency}
+                        onDispatch={handleDispatch}
+                        onCompare={handleCompare}
+                        onReset={handleReset}
+                        onToggleSim={handleToggleSim}
+                        onSelectEmergency={setSelectedEmergency}
+                        onSpeedChange={handleSpeedChange}
+                        onShowAnalytics={() => setShowAnalytics(true)}
+                        variant="speed"
+                        nodeLabelMap={nodeLabelMap}
                     />
                 </aside>
 
@@ -402,6 +439,33 @@ export default function App() {
                         onNodeClick={handleNodeClick}
                         onEmergencyClick={handleEmergencyClick}
                     />
+
+                    {/* ── Floating Dispatch Controls ── */}
+                    <div className="controls-overlay">
+                        <DispatchPanel
+                            ambulances={ambulances}
+                            hospitals={hospitals}
+                            emergencies={emergencies}
+                            nodes={nodes}
+                            comparison={comparison}
+                            lastResult={lastResult}
+                            selectedEmergency={selectedEmergency}
+                            simRunning={simRunning}
+                            simSpeed={simSpeed}
+                            isAnimating={!!animating}
+                            animatingState={animating}
+                            onGenerateEmergency={handleGenerateEmergency}
+                            onDispatch={handleDispatch}
+                            onCompare={handleCompare}
+                            onReset={handleReset}
+                            onToggleSim={handleToggleSim}
+                            onSelectEmergency={setSelectedEmergency}
+                            onSpeedChange={handleSpeedChange}
+                            onShowAnalytics={() => setShowAnalytics(true)}
+                            variant="controls"
+                            nodeLabelMap={nodeLabelMap}
+                        />
+                    </div>
                 </section>
             </main>
         </div>

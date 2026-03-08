@@ -39,16 +39,16 @@ _AMBULANCE_PRESETS = [
     ("AMB-03", "Charlie Unit", "1701428465"),   # GN Rd & North Crescent Rd
     ("AMB-04", "Delta Unit", "250364075"),      # Mambalam High Rd & Ramakrishna St
     ("AMB-05", "Echo Unit", "250364747"),       # Arulambal St & Habibullah Rd
-    ("AMB-06", "Unit 06", "11064218070"),  # Ramakanth St
-    ("AMB-07", "Unit 07", "250364066"),  # North Usman Rd & Vasan St
-    ("AMB-08", "Unit 08", "1702257674"),  # Junction 674
-    ("AMB-09", "Unit 09", "2237592504"),  # South Usman Rd & Srinivasa St
-    ("AMB-10", "Unit 10", "250364792"),  # Arulambal St & Trimoorthy St
-    ("AMB-11", "Unit 11", "3685546596"),  # Bakthavatchalam St
-    ("AMB-12", "Unit 12", "250319281"),  # Saravanan St & Thanikachalam Rd
-    ("AMB-13", "Unit 13", "11594244091"),  # Junction 091
-    ("AMB-14", "Unit 14", "247681415"),  # Doctor Shivaji Ganesan Rd & Vijayaraghava Rd
-    ("AMB-15", "Unit 15", "248700472"),  # South West Boag Rd & Venkatanarayana Rd
+    ("AMB-06", "Foxtrot Unit", "11064218070"),  # Ramakanth St
+    ("AMB-07", "Golf Unit", "250364066"),  # North Usman Rd & Vasan St
+    ("AMB-08", "Hotel Unit", "1702257674"),  # Junction 674
+    ("AMB-09", "India Unit", "2237592504"),  # South Usman Rd & Srinivasa St
+    ("AMB-10", "Juliet Unit", "250364792"),  # Arulambal St & Trimoorthy St
+    ("AMB-11", "Kilo Unit", "3685546596"),  # Bakthavatchalam St
+    ("AMB-12", "Lima Unit", "250319281"),  # Saravanan St & Thanikachalam Rd
+    ("AMB-13", "Mike Unit", "11594244091"),  # Junction 091
+    ("AMB-14", "November Unit", "247681415"),  # Doctor Shivaji Ganesan Rd & Vijayaraghava Rd
+    ("AMB-15", "Oscar Unit", "248700472"),  # South West Boag Rd & Venkatanarayana Rd
 ]
 
 _HOSPITAL_PRESETS = [
@@ -352,6 +352,8 @@ class DispatchService:
             amb.location = emg.location
             # Set cooldown: 3 ticks before ambulance returns
             self._cooldown_timers[amb.id] = 3
+            if amb.id in self._returning_ambulances:
+                del self._returning_ambulances[amb.id]
 
         hosp = next((h for h in self._hospitals if h.id == result.hospital_id), None)
         if hosp:

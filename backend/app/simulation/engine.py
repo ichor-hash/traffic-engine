@@ -63,8 +63,8 @@ class TrafficConfig:
     """
 
     tick_interval: float = 3.0
-    congestion_prob: float = 0.10
-    accident_prob: float = 0.02
+    congestion_prob: float = 0.005
+    accident_prob: float = 0.001
     recovery_rate: float = 0.30
     max_congestion_mult: float = 3.0
     min_congestion_mult: float = 1.5
@@ -211,7 +211,10 @@ class TrafficEngine:
     def _loop(self) -> None:
         """Main simulation loop — runs on the background thread."""
         while self._running:
-            self.tick()
+            changes = self.tick()
+            if changes:
+                for cb in self._callbacks:
+                    cb(changes)
             time.sleep(self._config.tick_interval)
 
     def _process_edge(self, edge: Edge, is_hot: bool) -> dict | None:

@@ -49,7 +49,7 @@ def greedy_dispatch(
 
     Time complexity: O(A × (V+E) log V) worst case.
     """
-    available = [a for a in ambulances if a.status == AmbulanceStatus.AVAILABLE]
+    available = [a for a in ambulances if a.status in (AmbulanceStatus.AVAILABLE, AmbulanceStatus.RETURNING)]
     if not available:
         return None
 
