@@ -154,11 +154,29 @@ class TrafficEngine:
                 if change is not None:
                     changes.append(change)
 
-        # Notify listeners outside the lock
+        return changes
+
+    def reset_traffic(self) -> list[dict]:
+        """Reset all edges to base_weight and NORMAL status."""
+        changes: list[dict] = []
+        with self._lock:
+            for edge in self._graph.get_all_edges():
+                if edge.status != EdgeStatus.NORMAL:
+                    changes.append({
+                        "from_node": edge.from_node,
+                        "to_node": edge.to_node,
+                        "old_weight": edge.current_weight,
+                        "new_weight": edge.base_weight,
+                        "status": EdgeStatus.NORMAL.value,
+                    })
+                    edge.current_weight = edge.base_weight
+                    edge.status = EdgeStatus.NORMAL
+        
+        # Notify listeners
         if changes:
             for cb in self._callbacks:
                 cb(changes)
-
+                
         return changes
 
     # ── Internals ─────────────────────────────────────────────────────

@@ -168,7 +168,7 @@ export default function App() {
                     type: "success",
                     title: "Patient Delivered",
                     description: `${result.ambulance_id} arrived at hospital`,
-                    duration: 5000,
+                    duration: 8000,
                 });
                 return;
             }
@@ -180,7 +180,7 @@ export default function App() {
                     type: "info",
                     title: "Patient Picked Up",
                     description: `${result.ambulance_id} en route to hospital`,
-                    duration: 3000,
+                    duration: 8000,
                 });
             }
 
@@ -229,7 +229,7 @@ export default function App() {
                     type: "success",
                     title: "Ambulance Dispatched",
                     description: `${r.ambulance_id} responding to #${r.emergency_id} (${r.algorithm})`,
-                    duration: 5000,
+                    duration: 8000,
                 });
                 setSelectedEmergency(null);
                 startAnimation(r);
@@ -347,12 +347,14 @@ export default function App() {
                         ambulances={ambulances}
                         hospitals={hospitals}
                         emergencies={emergencies}
+                        nodes={nodes}
                         comparison={comparison}
                         lastResult={lastResult}
                         selectedEmergency={selectedEmergency}
                         simRunning={simRunning}
                         simSpeed={simSpeed}
                         isAnimating={!!animating}
+                        animatingState={animating}
                         onGenerateEmergency={handleGenerateEmergency}
                         onDispatch={handleDispatch}
                         onCompare={handleCompare}

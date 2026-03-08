@@ -238,7 +238,7 @@ class DispatchService:
             self._cooldown_timers.clear()
             self._auto_emg_counter = 0
 
-    def tick_hospitals(self) -> None:
+    def tick_hospitals(self, sim_running: bool = True) -> None:
         """
         Simulation tick: adjust hospital loads, process cooldowns,
         auto-generate emergencies, and broadcast updates.
@@ -269,6 +269,9 @@ class DispatchService:
         self._emit("hospital_update", {
             "hospitals": [h.to_dict() for h in self._hospitals],
         })
+
+        if not sim_running:
+            return
 
         # Auto-generate emergency (every 3-6 ticks during simulation)
         self._auto_emg_counter += 1

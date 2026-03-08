@@ -295,9 +295,10 @@ def create_router(
 
     @router.post("/dispatch/reset")
     async def dispatch_reset() -> dict:
-        """Reset all dispatch state."""
+        """Reset all dispatch state and traffic conditions."""
         try:
             dispatch.reset()
+            engine.reset_traffic()
             return {"status": "reset"}
         except Exception as e:
             logger.error(f"Dispatch reset failed: {e}")

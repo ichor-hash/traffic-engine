@@ -5,18 +5,21 @@ import {
     Play, Square, RotateCcw, Scale, ChevronRight,
     Activity, CircleDot, Gauge,
 } from "lucide-react";
-import type { Ambulance, Hospital, Emergency, DispatchResult, DispatchComparison } from "../types";
+import type { GraphNode, Ambulance, Hospital, Emergency, DispatchResult, DispatchComparison } from "../types";
+import type { AnimatingAmbulance } from "./LeafletMap";
 
 interface Props {
     ambulances: Ambulance[];
     hospitals: Hospital[];
     emergencies: Emergency[];
+    nodes: GraphNode[];
     comparison: DispatchComparison | null;
     lastResult: DispatchResult | null;
     selectedEmergency: string | null;
     simRunning: boolean;
     simSpeed: number;
     isAnimating: boolean;
+    animatingState: AnimatingAmbulance | null;
     onGenerateEmergency: () => void;
     onDispatch: (algorithm: string) => void;
     onCompare: () => void;
@@ -27,11 +30,12 @@ interface Props {
 }
 
 export default function DispatchPanel({
-    ambulances, hospitals, emergencies, comparison, lastResult,
-    selectedEmergency, simRunning, simSpeed, isAnimating,
+    ambulances, hospitals, emergencies, nodes, comparison, lastResult,
+    selectedEmergency, simRunning, simSpeed, isAnimating, animatingState,
     onGenerateEmergency, onDispatch, onCompare, onReset, onToggleSim,
     onSelectEmergency, onSpeedChange,
 }: Props) {
+    const nodeMap = nodes.reduce((acc, node) => ({ ...acc, [node.id]: node.label || node.id }), {} as Record<string, string>);
     const pendingCount = emergencies.filter(e => !e.assigned).length;
     const availableCount = ambulances.filter(a => a.status === "available").length;
     const pending = emergencies.filter(e => !e.assigned);
@@ -227,9 +231,37 @@ export default function DispatchPanel({
             {isAnimating && (
                 <div className="card">
                     <div className="card-title"><Activity /> Dispatching...</div>
-                    <div className="hint">
+                    <div className="hint" style={{ marginBottom: "12px" }}>
                         Ambulance is en route. Watch the map.
                     </div>
+                    {animatingState && (
+                        <div className="live-trace" style={{
+                            maxHeight: '150px',
+                            overflowY: 'auto',
+                            fontSize: '12px',
+                            background: 'var(--m3-surface-container-highest)',
+                            padding: '12px',
+                            borderRadius: '8px',
+                            fontFamily: 'monospace',
+                            lineHeight: '1.6'
+                        }}>
+                            <div style={{ fontWeight: 'bold', marginBottom: '8px', color: 'var(--m3-primary)' }}>Live Route Trace:</div>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                                {animatingState.path.map((node, i) => (
+                                    <span key={i} style={{
+                                        color: i === animatingState.currentIdx ? 'var(--m3-primary)' :
+                                            i < animatingState.currentIdx ? 'var(--m3-on-surface-var)' : 'var(--m3-on-surface)',
+                                        fontWeight: i === animatingState.currentIdx ? 'bold' : 'normal',
+                                        background: i === animatingState.currentIdx ? 'color-mix(in srgb, var(--m3-primary) 15%, transparent)' : 'transparent',
+                                        padding: i === animatingState.currentIdx ? '0 4px' : '0',
+                                        borderRadius: '4px'
+                                    }}>
+                                        {nodeMap[node] || node}{i < animatingState.path.length - 1 ? <span style={{ color: 'var(--m3-outline-variant)', margin: '0 2px' }}>→</span> : ''}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             )}
         </div>

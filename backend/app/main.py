@@ -48,7 +48,7 @@ engine.on_change(routing.on_traffic_change)
 
 # Wire hospital dynamics — tick hospitals alongside traffic
 def _on_traffic_tick(changes: list[dict]) -> None:
-    dispatch.tick_hospitals()
+    dispatch.tick_hospitals(engine.is_running)
 
 engine.on_change(_on_traffic_tick)
 
