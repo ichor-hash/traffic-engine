@@ -123,11 +123,12 @@ export async function resetDispatch(): Promise<void> {
 /* ── WebSocket ── */
 
 export function createUpdateSocket(
-    onTrafficUpdate: (changes: any[]) => void,
+    onTrafficUpdate: (changes: any[], timeOfDay?: string) => void,
     onRouteUpdate: (result: PathResult) => void,
     onEmergencyNew?: (data: any) => void,
     onDispatchAssigned?: (data: any) => void,
     onHospitalUpdate?: (data: any) => void,
+    onFleetUpdate?: (data: any) => void,
 ): WebSocket {
     const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
     const ws = new WebSocket(`${protocol}//${window.location.host}/updates`);
@@ -135,7 +136,7 @@ export function createUpdateSocket(
     ws.onmessage = (event) => {
         const msg = JSON.parse(event.data);
         if (msg.type === "traffic_update") {
-            onTrafficUpdate(msg.data.changes);
+            onTrafficUpdate(msg.data.changes, msg.data.time_of_day);
         } else if (msg.type === "route_update") {
             onRouteUpdate(msg.data);
         } else if (msg.type === "emergency_new" && onEmergencyNew) {
@@ -144,6 +145,8 @@ export function createUpdateSocket(
             onDispatchAssigned(msg.data);
         } else if (msg.type === "hospital_update" && onHospitalUpdate) {
             onHospitalUpdate(msg.data);
+        } else if (msg.type === "fleet_update" && onFleetUpdate) {
+            onFleetUpdate(msg.data);
         }
     };
 

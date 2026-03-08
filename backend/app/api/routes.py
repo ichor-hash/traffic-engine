@@ -109,7 +109,10 @@ def create_router(
     # ── Wire callbacks ────────────────────────────────────────────────
 
     def _on_traffic_change(changes: list[dict]) -> None:
-        _sync_broadcast("traffic_update", {"changes": changes})
+        _sync_broadcast("traffic_update", {
+            "changes": changes,
+            "time_of_day": engine.time_of_day.value
+        })
 
     def _on_route_update(result, reason: str) -> None:
         _sync_broadcast("route_update", result.to_dict())
@@ -206,7 +209,11 @@ def create_router(
     @router.get("/simulation/status")
     async def simulation_status() -> dict:
         """Check whether the simulation is running."""
-        return {"running": engine.is_running, "tick_interval": engine.tick_interval}
+        return {
+            "running": engine.is_running,
+            "tick_interval": engine.tick_interval,
+            "time_of_day": engine.time_of_day.value
+        }
 
     @router.post("/simulation/speed")
     async def set_simulation_speed(req: SimSpeedRequest) -> dict:

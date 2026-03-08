@@ -16,6 +16,7 @@ import {
 import LeafletMap from "./components/LeafletMap";
 import type { AnimatingAmbulance } from "./components/LeafletMap";
 import DispatchPanel from "./components/DispatchPanel";
+import AnalyticsDashboard from "./components/AnalyticsDashboard";
 import { ToastContainer, useToast } from "./components/Toast";
 
 export default function App() {
@@ -34,8 +35,11 @@ export default function App() {
     const [selectedEmergency, setSelectedEmergency] = useState<string | null>(null);
     const [simRunning, setSimRunning] = useState(false);
     const [simSpeed, setSimSpeed] = useState(3.0);
+    const [timeOfDay, setTimeOfDay] = useState("Off-Peak");
     const [score, setScore] = useState(0);
     const [dispatches, setDispatches] = useState(0);
+    const [dispatchHistory, setDispatchHistory] = useState<DispatchResult[]>([]);
+    const [showAnalytics, setShowAnalytics] = useState(false);
 
     /* ── Animation ── */
     const [animating, setAnimating] = useState<AnimatingAmbulance | null>(null);
@@ -62,6 +66,7 @@ export default function App() {
                 setEmergencies(d.emergencies);
                 setScore(d.score || 0);
                 setDispatches(d.dispatches || 0);
+                setDispatchHistory(d.history || []);
                 setLoading(false);
             })
             .catch((err) => {
@@ -76,7 +81,8 @@ export default function App() {
         let ws: WebSocket;
         try {
             ws = createUpdateSocket(
-                (changes) => {
+                (changes, tod) => {
+                    if (tod) setTimeOfDay(tod);
                     setEdges(prev => {
                         const u = [...prev];
                         for (const c of changes) {
@@ -102,6 +108,9 @@ export default function App() {
                 (data) => {
                     if (data.hospitals) setHospitals(data.hospitals);
                 },
+                (data) => {
+                    if (data.ambulances) setAmbulances(data.ambulances);
+                }
             );
             wsRef.current = ws;
         } catch (err) {
@@ -118,6 +127,7 @@ export default function App() {
             setEmergencies(s.emergencies);
             setScore(s.score || 0);
             setDispatches(s.dispatches || 0);
+            setDispatchHistory(s.history || []);
         } catch (err) {
             console.error("Failed to refresh state:", err);
         }
@@ -259,6 +269,7 @@ export default function App() {
             setSelectedEmergency(null);
             setScore(0);
             setDispatches(0);
+            setDispatchHistory([]);
             await resetDispatch();
             await refreshDispatchState();
             addToast({ type: "info", title: "System Reset", duration: 3000 });
@@ -320,6 +331,12 @@ export default function App() {
     return (
         <div className="app">
             <ToastContainer toasts={toasts} onDismiss={dismissToast} />
+            {showAnalytics && (
+                <AnalyticsDashboard
+                    history={dispatchHistory}
+                    onClose={() => setShowAnalytics(false)}
+                />
+            )}
 
             <header className="app-header">
                 <div className="brand">
@@ -334,6 +351,12 @@ export default function App() {
                         <span className="score-sep">|</span>
                         <span>{dispatches} dispatched</span>
                     </div>
+                    {simRunning && (
+                        <div className="score-chip" style={{ marginLeft: 8, marginRight: 8, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <span style={{ color: "var(--m3-primary)" }}>{timeOfDay === "Morning Rush" || timeOfDay === "Evening Rush" ? "🚗" : "🟢"}</span>
+                            <span>{timeOfDay}</span>
+                        </div>
+                    )}
                     <div className={`status-chip ${simRunning ? "live" : ""}`}>
                         {simRunning && <span className="status-dot" />}
                         {simRunning ? "Traffic Live" : "Traffic Paused"}
@@ -362,6 +385,7 @@ export default function App() {
                         onToggleSim={handleToggleSim}
                         onSelectEmergency={setSelectedEmergency}
                         onSpeedChange={handleSpeedChange}
+                        onShowAnalytics={() => setShowAnalytics(true)}
                     />
                 </aside>
 

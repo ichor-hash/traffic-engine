@@ -1,0 +1,33 @@
+# Ambulance Dispatch System Updates
+
+I have successfully implemented all four of the advanced features you requested. The system is now significantly more realistic and academically presentable for your DAA project demo.
+
+Here is a summary of the additions:
+
+## 1. Emergency Triage (Priority-Based Dispatch)
+The **Hungarian Algorithm** now incorporates emergency severity. If there are more emergencies than available ambulances, it pads the cost matrix with "dummy" ambulances that carry a massive penalty cost proportional to the emergency's severity (e.g., Severity 5 carries a much larger penalty than Severity 1).
+- **Result:** The algorithm mathematically forces itself to drop lower-severity emergencies in favor of critical ones to minimize the total dispatch cost function.
+
+## 2. Time-of-Day Traffic Modeling (Rush Hour Simulation)
+The [TrafficEngine](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/simulation/engine.py#73-292) now dynamically cycles through 4 phases: **Morning Rush**, **Off-Peak**, **Evening Rush**, and **Night**.
+- During rush hours, a multiplier of `2.5x` is applied to congestion probabilities.
+- During night time, a `0.5x` multiplier is applied, making traffic flow smoother.
+- **UI:** The current time of day is broadcast via WebSocket and displayed interactively on the top-right control panel.
+
+## 3. Analytics & Graphing Dashboard
+We replaced plain text history with a dynamic visual dashboard.
+- Clicking **"Analytics"** in the Dispatch panel opens a clean, glassmorphic modal overlay.
+- It uses **Recharts** to plot a LineChart of the `Response Time` and `Total Time` for the recent dispatch history.
+- Built strictly with Material 3 principles (vibrant colors, thin typography, accessible curves).
+
+## 4. Ambulance Fleet Rebalancing (Home Bases)
+Instead of ambulances warping back to random spots instantly after their cooldown expires:
+- Each ambulance is now assigned a dedicated `home_base` coordinate.
+- Upon completing a dispatch, its status changes to `Returning`.
+- The backend automatically uses **Dijkstra's shortest path** to route it back.
+- It physically steps node-by-node along the graph over multiple ticks, visually crawling back to its base on the frontend map in real-time.
+
+---
+
+### Verification Note
+All four features are wired from the backend algorithms ([engine.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/simulation/engine.py), [dispatch_service.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/dispatch_service.py), [hungarian.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/hungarian.py)) through the Python FastAPI WebSocket and into the React frontend. Run the app, spawn an emergency, dispatch it, and watch the system work holistically!

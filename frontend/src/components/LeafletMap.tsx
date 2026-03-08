@@ -65,6 +65,7 @@ export default function LeafletMap({
     const markerLayer = useRef(L.layerGroup());
     const pathLayer = useRef(L.layerGroup());
     const animLayer = useRef(L.layerGroup());
+    const boundsLayer = useRef(L.layerGroup());
 
     const nodeMap = useMemo(() => {
         const m: Record<string, GraphNode> = {};
@@ -86,10 +87,30 @@ export default function LeafletMap({
         markerLayer.current.addTo(map);
         pathLayer.current.addTo(map);
         animLayer.current.addTo(map);
+        boundsLayer.current.addTo(map);
 
         mapRef.current = map;
         return () => { map.remove(); mapRef.current = null; };
     }, []);
+
+    /* ── Region Boundary ── */
+    useEffect(() => {
+        boundsLayer.current.clearLayers();
+        if (nodes.length === 0) return;
+
+        let minLat = 90, maxLat = -90, minLng = 180, maxLng = -180;
+        for (const n of nodes) {
+            if (n.y < minLat) minLat = n.y;
+            if (n.y > maxLat) maxLat = n.y;
+            if (n.x < minLng) minLng = n.x;
+            if (n.x > maxLng) maxLng = n.x;
+        }
+
+        const bounds: L.LatLngBoundsLiteral = [[minLat, minLng], [maxLat, maxLng]];
+        L.rectangle(bounds, { color: "#0a84ff", weight: 3, fillOpacity: 0.05, dashArray: "10, 10", opacity: 0.8 })
+            .bindTooltip("Simulation Area Boundary", { direction: "top", sticky: true, className: "node-tip" })
+            .addTo(boundsLayer.current);
+    }, [nodes]);
 
     /* ── Edges ── */
     useEffect(() => {

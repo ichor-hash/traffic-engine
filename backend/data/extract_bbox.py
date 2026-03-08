@@ -7,11 +7,11 @@ from pathlib import Path
 import osmnx as ox
 import networkx as nx
 
-NORTH = 13.060
-SOUTH = 13.030
-EAST  = 80.250
-WEST  = 80.220
-MAX_NODES = 250
+NORTH = 13.075
+SOUTH = 13.015
+EAST  = 80.270
+WEST  = 80.200
+MAX_NODES = 1200
 OUTPUT = Path(__file__).parent / "map.json"
 
 print("Downloading T. Nagar road network...")

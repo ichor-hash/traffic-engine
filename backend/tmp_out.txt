@@ -1,0 +1,14 @@
+---AMBs---
+    ("AMB-06", "Unit 06", "11064218070"),  # Ramakanth St
+    ("AMB-07", "Unit 07", "250364066"),  # North Usman Rd & Vasan St
+    ("AMB-08", "Unit 08", "1702257674"),  # Junction 674
+    ("AMB-09", "Unit 09", "2237592504"),  # South Usman Rd & Srinivasa St
+    ("AMB-10", "Unit 10", "250364792"),  # Arulambal St & Trimoorthy St
+    ("AMB-11", "Unit 11", "3685546596"),  # Bakthavatchalam St
+    ("AMB-12", "Unit 12", "250319281"),  # Saravanan St & Thanikachalam Rd
+    ("AMB-13", "Unit 13", "11594244091"),  # Junction 091
+    ("AMB-14", "Unit 14", "247681415"),  # Doctor Shivaji Ganesan Rd & Vijayaraghava Rd
+    ("AMB-15", "Unit 15", "248700472"),  # South West Boag Rd & Venkatanarayana Rd
+---HOSPs---
+    ("H-04", "Hospital 04", "2197203129", 147, 161),  # Govindu St & North Usman Rd
+    ("H-05", "Hospital 05", "277434540", 219, 308),  # Kuppaiah Chetty St & Station Rd

@@ -34,6 +34,7 @@ class Ambulance:
     name: str
     location: str  # node ID on the graph
     status: AmbulanceStatus = AmbulanceStatus.AVAILABLE
+    home_base: str = ""
 
     def to_dict(self) -> dict:
         return {
@@ -41,6 +42,7 @@ class Ambulance:
             "name": self.name,
             "location": self.location,
             "status": self.status.value,
+            "home_base": self.home_base,
         }
 
 

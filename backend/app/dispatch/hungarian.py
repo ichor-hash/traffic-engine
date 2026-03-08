@@ -243,6 +243,20 @@ def hungarian_dispatch(
             row.append(score)
         cost_matrix.append(row)
 
+    # Pre-pad with dummy ambulances if we have more emergencies than ambulances.
+    # The cost of a dummy ambulance is the penalty of ignoring the emergency.
+    # Higher severity -> higher penalty, so the algorithm will assign real ambulances
+    # to high severity emergencies to avoid the huge dummy penalty.
+    if n_amb < n_emg:
+        for _ in range(n_emg - n_amb):
+            dummy_row = []
+            for emg in pending:
+                # Huge penalty scaled by severity. 
+                # Sev 5 penalty = 500,000. Sev 1 penalty = 100,000.
+                penalty = 100000.0 * emg.severity
+                dummy_row.append(penalty)
+            cost_matrix.append(dummy_row)
+
     # Run Hungarian algorithm
     assignments = _hungarian(cost_matrix)
 

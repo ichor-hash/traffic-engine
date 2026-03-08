@@ -27,6 +27,7 @@ import threading
 import time
 from dataclasses import dataclass, field
 from typing import Callable, TYPE_CHECKING
+from enum import Enum
 
 from app.graph.models import Edge, EdgeStatus
 
@@ -38,6 +39,13 @@ if TYPE_CHECKING:
 
 # Callback signature: (list_of_changed_edges) → None
 ChangeCallback = Callable[[list[dict]], None]
+
+
+class TimeOfDay(Enum):
+    MORNING_RUSH = "Morning Rush"
+    OFF_PEAK_DAY = "Off-Peak"
+    EVENING_RUSH = "Evening Rush"
+    NIGHT = "Night"
 
 
 @dataclass
@@ -95,6 +103,8 @@ class TrafficEngine:
         self._lock = threading.Lock()
         self._running = False
         self._thread: threading.Thread | None = None
+        self._ticks_elapsed = 0
+        self._time_of_day = TimeOfDay.OFF_PEAK_DAY
 
     # ── Public API ────────────────────────────────────────────────────
 
@@ -126,6 +136,10 @@ class TrafficEngine:
         self._config.tick_interval = max(0.5, min(10.0, interval))
 
     @property
+    def time_of_day(self) -> TimeOfDay:
+        return self._time_of_day
+
+    @property
     def tick_interval(self) -> float:
         return self._config.tick_interval
 
@@ -135,6 +149,19 @@ class TrafficEngine:
 
         Returns the list of edge-change dicts emitted in this tick.
         """
+        self._ticks_elapsed += 1
+        
+        # Advance time of day every 60 ticks
+        cycle_pos = (self._ticks_elapsed // 60) % 4
+        if cycle_pos == 0:
+            self._time_of_day = TimeOfDay.OFF_PEAK_DAY
+        elif cycle_pos == 1:
+            self._time_of_day = TimeOfDay.EVENING_RUSH
+        elif cycle_pos == 2:
+            self._time_of_day = TimeOfDay.NIGHT
+        else:
+            self._time_of_day = TimeOfDay.MORNING_RUSH
+
         changes: list[dict] = []
         all_edges = self._graph.get_all_edges()
 
@@ -217,8 +244,16 @@ class TrafficEngine:
             # Traffic Wave Simulation:
             # If this road connects to a congested intersection, vastly increase the chance
             # of the backlog spilling over into this road.
+            
+            # Rush hour multiplier
+            rush_mult = 1.0
+            if self._time_of_day in (TimeOfDay.MORNING_RUSH, TimeOfDay.EVENING_RUSH):
+                rush_mult = 2.5
+            elif self._time_of_day == TimeOfDay.NIGHT:
+                rush_mult = 0.5
+
             acc_prob = cfg.accident_prob * (5.0 if is_hot else 1.0)
-            cong_prob = cfg.congestion_prob * (3.0 if is_hot else 1.0)
+            cong_prob = cfg.congestion_prob * (3.0 if is_hot else 1.0) * rush_mult
 
             if roll < acc_prob:
                 # Accident → blocked

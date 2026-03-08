@@ -27,13 +27,14 @@ interface Props {
     onToggleSim: () => void;
     onSelectEmergency: (id: string | null) => void;
     onSpeedChange: (speed: number) => void;
+    onShowAnalytics: () => void;
 }
 
 export default function DispatchPanel({
     ambulances, hospitals, emergencies, nodes, comparison, lastResult,
     selectedEmergency, simRunning, simSpeed, isAnimating, animatingState,
     onGenerateEmergency, onDispatch, onCompare, onReset, onToggleSim,
-    onSelectEmergency, onSpeedChange,
+    onSelectEmergency, onSpeedChange, onShowAnalytics,
 }: Props) {
     const nodeMap = nodes.reduce((acc, node) => ({ ...acc, [node.id]: node.label || node.id }), {} as Record<string, string>);
     const pendingCount = emergencies.filter(e => !e.assigned).length;
@@ -110,6 +111,10 @@ export default function DispatchPanel({
                         onClick={onCompare}
                         disabled={pendingCount === 0 || availableCount === 0 || isAnimating}>
                         <Scale /> Compare Methods
+                    </button>
+                    <button className="btn btn-tonal"
+                        onClick={onShowAnalytics}>
+                        <Activity /> Analytics
                     </button>
                 </div>
                 <div className="btn-row">

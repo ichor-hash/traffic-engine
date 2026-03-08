@@ -1,119 +1,47 @@
-# Transform Traffic Engine → Ambulance Dispatch System
+# Implementation Plan
 
-Convert the existing traffic simulation into a full ambulance dispatch system with real-map rendering, dispatch algorithms, and interactive emergency features.
+This plan details the implementation of the four major features requested: Priority-Based Dispatch (Triage), Rush Hour Simulation, Analytics Dashboard, and Fleet Rebalancing.
 
 ## Proposed Changes
 
-### Backend: Dispatch Module
+### Backend Components
 
-#### [NEW] [models.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/models.py)
+#### [MODIFY] [app/dispatch/hungarian.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/hungarian.py) (Emergency Triage)
+- **Problem:** Currently, when there are more emergencies than ambulances, the matrix is padded with zeros. This means the penalty for leaving any emergency unassigned is `0`, negating the priority scoring.
+- **Solution:** Instead of padding with `0.0`, pad with dummy ambulances where the cost of assigning a dummy ambulance to an emergency represents the penalty of *ignoring* it. The penalty will be proportional to the emergency's severity (e.g., `Severity 5 penalty = 500,000`, `Severity 1 penalty = 100,000`).
+- This mathematically forces the Hungarian algorithm to assign real ambulances to high-severity emergencies first, exactly mimicking real-world triage.
 
-Data models for the dispatch system:
-- `Ambulance` — id, name, location (node ID), status (available/dispatched/returning)  
-- `Hospital` — id, name, location, capacity, current_load
-- `Emergency` — id, location, severity (1–5), timestamp
-- `DispatchResult` — assigned ambulance, hospital, algorithm used, response time, path
+#### [MODIFY] [app/simulation/engine.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/simulation/engine.py) (Rush Hour Simulation)
+- **Add states:** Introduce a `TimeOfDay` enum (`MORNING_RUSH`, `OFF_PEAK`, `EVENING_RUSH`) to the [TrafficEngine](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/simulation/engine.py#65-257).
+- **Logic:** The engine will cycle through a 24-hour clock. During rush hours, we will artificially increase the `base_weight` or apply a global multiplier to all arterial edges to simulate heavy urban flow.
+- Ensure the Current Time of Day state is exposed to the frontend via the `/updates` websocket.
 
-#### [NEW] [greedy.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/greedy.py)
-
-**Greedy (Naive) dispatch**: assigns the nearest available ambulance by Dijkstra distance. Sends patient to nearest hospital. Simple O(A × Dijkstra) where A = ambulance count.
-
-#### [NEW] [hungarian.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/hungarian.py)
-
-**Hungarian Algorithm**: optimal assignment when multiple emergencies are pending. Builds a cost matrix (ambulances × emergencies) using Dijkstra distances, solves the assignment problem in O(n³). Also factors in hospital capacity + traffic congestion for multi-objective scoring.
-
-#### [NEW] [dispatch_service.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/dispatch_service.py)
-
-Central orchestrator:
-- Manages ambulance fleet + hospital registry
-- Maintains emergency queue
-- `dispatch_greedy()` — single emergency assignment
-- `dispatch_hungarian()` — batch optimal assignment
-- `generate_emergency()` — random emergency at a graph node
-- `compare_methods()` — runs both and returns side-by-side results
-- Auto-generates emergencies during simulation ticks
-
-#### [MODIFY] [routes.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/api/routes.py)
-
-New endpoints:
-- `GET /dispatch/state` — ambulances, hospitals, pending emergencies
-- `POST /dispatch/emergency` — trigger a random emergency
-- `POST /dispatch/assign` — assign using specified algorithm
-- `POST /dispatch/compare` — compare greedy vs hungarian
-- `POST /dispatch/reset` — reset ambulance positions
-- WebSocket: push `emergency_new`, `dispatch_assigned` events
+#### [MODIFY] [app/dispatch/dispatch_service.py](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/backend/app/dispatch/dispatch_service.py) & `app/dispatch/models.py` (Fleet Rebalancing)
+- **Logic:** Define 3-4 strategic "Home Base" nodes spread across the map.
+- When an ambulance's `cooldown` at a hospital expires, it will no longer instantly warp to a preset.
+- Instead, the system will execute a "Rebalance Dispatch": calculate the shortest path to an assigned Home Base, set the status to `RETURNING`, and emit an `ambulance_rebalancing` socket event so the frontend can animate it returning.
 
 ---
 
-### Frontend: Leaflet + OpenStreetMap Map
+### Frontend Components
 
-#### Install packages
-```bash
-npm install leaflet react-leaflet @types/leaflet
-```
+#### [NEW] `frontend/src/components/AnalyticsDashboard.tsx`
+- **Dashboard UI:** Build a clean, Material 3 style modal/popup overlay.
+- **Recharts Integration:** Implement a `LineChart` plotting the `total_time` (Response + Transport) of the last 15 dispatches.
+- Include average response time stats text comparisons.
 
-#### [NEW] [LeafletMap.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/LeafletMap.tsx)
-
-Replaces [GraphCanvas.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/GraphCanvas.tsx):
-- `<MapContainer>` centered on T. Nagar, Chennai (13.045, 80.235)
-- OpenStreetMap tile layer (free, no API key)
-- Road edges as `<Polyline>` colored by traffic status (green/amber/red)
-- Node intersections as small `<CircleMarker>`
-- Ambulance markers (🚑 icon, blue when available, orange when dispatched)
-- Hospital markers (🏥 icon)
-- Emergency markers (❗ pulsing red icon)
-- Animated path polyline for dispatch routes
-
-#### [MODIFY] [App.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/App.tsx)
-
-- Swap `<GraphCanvas>` → `<LeafletMap>`
-- Add dispatch state management (ambulances, hospitals, emergencies)
-- Add dispatch API calls
-- Rebrand header: "Ambulance Dispatch System"
-
-#### [NEW] [DispatchPanel.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/DispatchPanel.tsx)
-
-Sidebar panel for dispatch controls:
-- "Generate Emergency" button
-- Algorithm selector (Greedy / Hungarian)
-- "Dispatch" button
-- "Compare Methods" button
-- Fleet status table (ambulance list with status)
-- Hospital capacity bars
-
-#### [MODIFY] [MetricsPanel.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/MetricsPanel.tsx)
-
-Add dispatch comparison view: side-by-side Greedy vs Hungarian results showing response time, path cost, and hospital load balance.
-
-#### [MODIFY] [types.ts](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/types.ts)
-
-New types: `Ambulance`, `Hospital`, `Emergency`, `DispatchResult`, `DispatchState`, `DispatchComparison`.
-
-#### [MODIFY] [api.ts](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/api.ts)
-
-New API functions: `fetchDispatchState`, `triggerEmergency`, `dispatchAssign`, `dispatchCompare`, `resetDispatch`.
-
-#### [MODIFY] [index.css](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/index.css)
-
-Add styles for Leaflet map container, ambulance/hospital/emergency markers, dispatch panel, fleet status, and comparison table. Emergency-themed color scheme (red accents, urgency aesthetics).
-
----
-
-### Vite Config Update
-
-#### [MODIFY] [vite.config.ts](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/vite.config.ts)
-
-Add proxy entries for `/dispatch/*` routes to backend.
+#### [MODIFY] [frontend/src/App.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/App.tsx) & [frontend/src/components/DispatchPanel.tsx](file:///c:/Users/adhiy/.gemini/antigravity/scratch/traffic%20engine/frontend/src/components/DispatchPanel.tsx)
+- **State holding:** Add `dispatchHistory` array state to keep track of past dispatches.
+- **Traffic State UI:** Display the current "Time of Day" (e.g., "Morning Rush Hour 🚗", "Off-Peak 🟢") prominently in the control panel or header.
+- **New Rebalancing Animation Logic:** Listen for the `ambulance_rebalancing` websocket event and trigger a Leaflet animation for the ambulance returning to its home base (in a blue or grey trace color to differentiate from active red emergencies).
 
 ## Verification Plan
 
 ### Automated Tests
-- `pytest tests/ -v` — existing tests still pass
-- Backend dispatch endpoint smoke tests via curl/PowerShell
+*Currently, there are no robust automated test suites set up for the Dispatch logic in this repository, so verification will primarily be manual running via the dashboard.*
 
 ### Manual Verification
-- Open `http://localhost:5173` — verify Leaflet map renders T. Nagar streets
-- Click "Generate Emergency" — red marker appears
-- Click "Dispatch (Greedy)" — ambulance assigned, path animated
-- Click "Compare" — see Greedy vs Hungarian side-by-side
-- Start simulation — traffic changes, dispatches adapt
+1.  **Emergency Triage**: Spawn 3 emergencies at once (one Sev 5, two Sev 1) while only having 1 available ambulance. Click "Hungarian Dispatch". Verify that the Sev 5 is prioritized and picked up.
+2.  **Rush Hour**: Start the traffic simulation. Watch the frontend UI text cycle to "Morning Rush Hour". Observe if map edge colors turn more intensely orange/red automatically compared to Off-Peak.
+3.  **Fleet Rebalancing**: Dispatch an ambulance to a hospital. Wait for the patient delivery toast and the subsequent cooldown (5-10 seconds). Verify that the ambulance begins to trace a path back to a "fire station" instead of instantly warping or staying stuck at the hospital.
+4.  **Analytics**: Perform 5+ dispatches. Open the new "Analytics Dashboard" button in the UI. Verify that a clean Recharts line graph renders showing the historical dispatch times without overlapping the map canvas unnaturally.

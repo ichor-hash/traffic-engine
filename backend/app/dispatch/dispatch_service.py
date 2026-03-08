@@ -34,17 +34,29 @@ DispatchCallback = Callable[[str, dict], None]
 
 # Selected from actual intersections in map.json
 _AMBULANCE_PRESETS = [
-    ("AMB-01", "Alpha Unit", "12852450817"),   # North Usman Rd & Panagal Park
+    ("AMB-01", "Alpha Unit", "2197202945"),   # Thanikachalam Rd & Venkatanarayana Rd
     ("AMB-02", "Bravo Unit", "250364033"),      # Maharajapuram Santhanam Salai
     ("AMB-03", "Charlie Unit", "1701428465"),   # GN Rd & North Crescent Rd
     ("AMB-04", "Delta Unit", "250364075"),      # Mambalam High Rd & Ramakrishna St
     ("AMB-05", "Echo Unit", "250364747"),       # Arulambal St & Habibullah Rd
+    ("AMB-06", "Unit 06", "11064218070"),  # Ramakanth St
+    ("AMB-07", "Unit 07", "250364066"),  # North Usman Rd & Vasan St
+    ("AMB-08", "Unit 08", "1702257674"),  # Junction 674
+    ("AMB-09", "Unit 09", "2237592504"),  # South Usman Rd & Srinivasa St
+    ("AMB-10", "Unit 10", "250364792"),  # Arulambal St & Trimoorthy St
+    ("AMB-11", "Unit 11", "3685546596"),  # Bakthavatchalam St
+    ("AMB-12", "Unit 12", "250319281"),  # Saravanan St & Thanikachalam Rd
+    ("AMB-13", "Unit 13", "11594244091"),  # Junction 091
+    ("AMB-14", "Unit 14", "247681415"),  # Doctor Shivaji Ganesan Rd & Vijayaraghava Rd
+    ("AMB-15", "Unit 15", "248700472"),  # South West Boag Rd & Venkatanarayana Rd
 ]
 
 _HOSPITAL_PRESETS = [
-    ("H-01", "T. Nagar General Hospital", "2197203112", 80, 45),  # GN Rd & Panagal Park
-    ("H-02", "Mambalam Medical Centre", "298154015", 60, 35),     # Gangai Amman St
-    ("H-03", "Usman Road Clinic", "2197415767", 40, 28),          # Habibullah Rd & North Usman Rd
+    ("H-01", "T. Nagar General Hospital", "2197203112", 500, 450),  # GN Rd & Panagal Park
+    ("H-02", "Mambalam Medical Centre", "298154015", 250, 220),     # Gangai Amman St
+    ("H-03", "Usman Road Clinic", "2197415767", 100, 85),           # Habibullah Rd & North Usman Rd
+    ("H-04", "Govindu St Hospital", "2197203129", 150, 140),  # Govindu St & North Usman Rd
+    ("H-05", "Station Rd Clinic", "277434540", 220, 190),  # Kuppaiah Chetty St & Station Rd
 ]
 
 
@@ -78,6 +90,7 @@ class DispatchService:
         self._missed_count: int = 0  # emergencies that expired
         self._auto_emg_counter: int = 0  # ticks until next auto-emergency
         self._cooldown_timers: dict[str, int] = {}  # amb_id -> ticks remaining
+        self._returning_ambulances: dict[str, list[str]] = {} # amb_id -> path to home
 
         self._init_presets()
 
@@ -85,7 +98,7 @@ class DispatchService:
         """Load ambulances and hospitals from preset data."""
         for aid, name, loc in _AMBULANCE_PRESETS:
             self._ambulances.append(Ambulance(
-                id=aid, name=name, location=loc,
+                id=aid, name=name, location=loc, home_base=loc
             ))
         for hid, name, loc, cap, load in _HOSPITAL_PRESETS:
             self._hospitals.append(Hospital(
@@ -236,6 +249,7 @@ class DispatchService:
             self._dispatches_count = 0
             self._missed_count = 0
             self._cooldown_timers.clear()
+            self._returning_ambulances.clear()
             self._auto_emg_counter = 0
 
     def tick_hospitals(self, sim_running: bool = True) -> None:
@@ -261,13 +275,42 @@ class DispatchService:
                 del self._cooldown_timers[amb_id]
                 amb = next((a for a in self._ambulances if a.id == amb_id), None)
                 if amb and amb.status == AmbulanceStatus.DISPATCHED:
-                    amb.status = AmbulanceStatus.AVAILABLE
-                    # Return to a random preset location
-                    preset = random.choice(_AMBULANCE_PRESETS)
-                    amb.location = preset[2]
+                    from app.graph.routing.dijkstra import dijkstra
+                    amb.status = AmbulanceStatus.RETURNING
+                    
+                    res = dijkstra(self._graph, amb.location, amb.home_base)
+                    
+                    if res.found and len(res.path) > 1:
+                        self._returning_ambulances[amb.id] = res.path[1:]
+                    else:
+                        amb.status = AmbulanceStatus.AVAILABLE
+                        amb.location = amb.home_base
+
+            # Step returning ambulances
+            arrived = []
+            for amb_id, path in self._returning_ambulances.items():
+                if not path:
+                    arrived.append(amb_id)
+                    continue
+                    
+                amb = next((a for a in self._ambulances if a.id == amb_id), None)
+                if amb:
+                    next_node = path.pop(0)
+                    amb.location = next_node
+                    if not path:
+                        amb.status = AmbulanceStatus.AVAILABLE
+                        arrived.append(amb_id)
+                else:
+                    arrived.append(amb_id)
+            for amb_id in arrived:
+                if amb_id in self._returning_ambulances:
+                    del self._returning_ambulances[amb_id]
 
         self._emit("hospital_update", {
             "hospitals": [h.to_dict() for h in self._hospitals],
+        })
+        self._emit("fleet_update", {
+            "ambulances": [a.to_dict() for a in self._ambulances],
         })
 
         if not sim_running:
