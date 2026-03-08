@@ -1,0 +1,8 @@
+cd "c:\Users\adhiy\.gemini\antigravity\scratch\traffic engine\backend"
+.\.venv\Scripts\activate
+python -m uvicorn app.main:app --reload --port 8000
+
+
+
+cd "c:\Users\adhiy\.gemini\antigravity\scratch\traffic engine\frontend"
+npm run dev
